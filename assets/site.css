@@ -40,7 +40,11 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;paddin
 /* ---------- universe bar: thin strip shared by every sub-site ---------- */
 .ubar{border-bottom:1px solid var(--line);font-size:.8rem;background:var(--bg);position:relative;z-index:20}
 .ubar .wrap{display:flex;align-items:center;gap:1rem;min-height:40px}
-.ubar .home{font-family:var(--f-disp);font-size:1rem;white-space:nowrap}
+.ubar .home{display:flex;align-items:center;color:var(--fg);flex:none}
+.ubar .home:hover{color:var(--accent)}
+.sig-logo{display:inline-block;aspect-ratio:1423/407;background:currentColor;-webkit-mask:url(img/signature.png) center/contain no-repeat;mask:url(img/signature.png) center/contain no-repeat;transition:background-color .25s}
+.ubar .sig-logo{height:34px}
+.f-sig{height:clamp(56px,7vw,84px);color:#fff;margin-bottom:1.4rem;display:block}
 .ubar .home b{font-weight:500}
 .ubar nav{display:flex;gap:1.1rem;overflow-x:auto;scrollbar-width:none;margin-left:auto;white-space:nowrap}
 .ubar nav::-webkit-scrollbar{display:none}
@@ -91,9 +95,9 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;paddin
 .f-soc svg{width:18px;height:18px}
 .f-fam{display:flex;gap:1.3rem;flex-wrap:wrap;align-items:center;font-size:.92rem;color:#cfcfca}
 .f-made{color:#8f8f8a;font-style:italic;font-family:var(--f-disp);font-size:1rem}
-.f-ground{position:relative;overflow:hidden;height:clamp(3.6rem,11.4vw,11rem);margin-top:1.5rem}
+.f-ground{position:relative;overflow:hidden;height:clamp(2.1rem,11.4vw,11rem);margin-top:1.5rem}
 .f-ground::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:#2e2e2e}
-.f-mark{position:absolute;right:max(20px,3vw);bottom:0;transform:translateY(26%);display:flex;font-family:var(--f-disp);font-size:clamp(4.6rem,15vw,14.5rem);line-height:.8;letter-spacing:-.045em;white-space:nowrap;user-select:none;color:transparent;-webkit-text-stroke:1px #4a4a4a}
+.f-mark{position:absolute;right:max(20px,3vw);bottom:0;transform:translateY(26%);display:flex;font-family:var(--f-disp);font-size:clamp(2.6rem,15vw,14.5rem);line-height:.8;letter-spacing:-.045em;white-space:nowrap;user-select:none;color:transparent;-webkit-text-stroke:1px #4a4a4a}
 .f-mark span{display:inline-block;transition:transform .55s cubic-bezier(.2,.9,.25,1.2),color .4s,-webkit-text-stroke-color .4s;transition-delay:calc(var(--i)*28ms)}
 .f-mark:hover{color:transparent}
 .f-mark:hover span{transform:translateY(-14%);color:#d41f26;-webkit-text-stroke-color:#d41f26}

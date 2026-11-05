@@ -28,7 +28,7 @@
   var ub = $("#ubar");
   if (ub) {
     ub.className = "ubar";
-    ub.innerHTML = '<div class="wrap"><a class="home" href="'+ROOT+'"><b>Neelesh Misra</b></a><nav aria-label="Neelesh Misra\'s work">'+
+    ub.innerHTML = '<div class="wrap"><a class="home" href="'+ROOT+'" aria-label="Neelesh Misra, home"><span class="sig-logo"></span></a><nav aria-label="Neelesh Misra\'s work">'+
       ROOMS.map(function(r){return '<a href="'+ROOT+r[0]+'/"'+(PAGE===r[0]?' aria-current="page"':'')+'>'+r[1]+'</a>'}).join("")+
       '</nav>'+themeBtn()+'</div>';
   }
@@ -53,7 +53,7 @@
     ft.innerHTML=
       '<div class="wrap">'+
         '<div class="f-top">'+
-          '<div class="f-say"><p class="label">Write to Neelesh</p><h2>Have a story,<br>a stage, or an idea?</h2></div>'+
+          '<div class="f-say"><span class="sig-logo f-sig" role="img" aria-label="Neelesh Misra\'s signature"></span><p class="label">Write to Neelesh</p><h2>Have a story,<br>a stage, or an idea?</h2></div>'+
           '<div class="f-ctas">'+
             '<a class="f-cta" href="'+P.enquiry+'"><span class="label">Business</span><b>Brands, films, collaborations</b><span class="go">'+ICON.arrow+'</span></a>'+
             '<a class="f-cta" href="'+ROOT+'live/"><span class="label">Live</span><b>Bring the show to your city</b><span class="go">'+ICON.arrow+'</span></a>'+
