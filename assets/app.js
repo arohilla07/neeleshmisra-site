@@ -60,7 +60,7 @@
             '<a class="f-cta" href="'+P.whatsapp+'"><span class="label">WhatsApp</span><b>Get stories from Neelesh</b><span class="go">'+ICON.arrow+'</span></a>'+
           '</div>'+
         '</div>'+
-        '<nav class="f-index" aria-label="All of Neelesh\'s work">'+ROOMS.map(function(r,i){return '<a href="'+ROOT+r[0]+'/"><span class="n">0'+(i+1)+'</span><b>'+r[1]+'</b><small>'+blurb[r[0]]+'</small></a>'}).join("")+'</nav>'+
+        '<nav class="f-index" aria-label="All of Neelesh\'s work">'+ROOMS.map(function(r,i){return '<a href="'+ROOT+r[0]+'/"><span class="n">0'+(i+1)+'</span><b>'+r[1]+'</b><small>'+blurb[r[0]]+'</small></a>'}).join("")+'<a href="https://www.gaonconnection.com/" class="f-gc"><span class="n">↗</span><b>Gaon Connection</b><small>Founded 2012</small></a></nav>'+
         '<div class="f-mid">'+
           '<div class="f-soc">'+Object.keys(SOC).map(function(k){return '<a href="'+P.social[k]+'" aria-label="'+k+'" title="'+k+'"><svg viewBox="0 0 24 24">'+SOC[k]+'</svg></a>'}).join("")+'</div>'+
           '<div class="f-fam"><span class="label">The Slow Movement</span><a href="https://www.gaonconnection.com/">Gaon Connection</a><a href="'+P.social["Slow Music"]+'">Slow Music</a><a href="https://slowbazaar.com/">Slow Bazaar</a><a href="'+P.workWithUs+'">Work with us</a><a href="mailto:'+P.email+'">'+P.email+'</a></div>'+
