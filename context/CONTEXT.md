@@ -65,11 +65,22 @@ Why: all neeleshmisra.com content is already imported into the NM staging WordPr
 Captured in `assets/data.js`. Highlights: bio (b. 4 May 1973 Lucknow; IIMC; India Abroad, AP, Hindustan Times), 32 film songs as lyricist (Jism 2003 → Metro… In Dino 2025), Slow Music songs he wrote and sang, Kood (2026 mini feature, written & directed), radio (YKIB on BIG FM from 2011, Red FM show 2016, Kahaani Express 2018), books (173 Hours in Captivity, Yaad Sheher 1 & 2, Main Aksar Sochta Hoon, Gaon Se Bees Postcards), Slow Interview guests, awards, socials, contact.
 The current site does not expose YouTube IDs to our tools; embeds need IDs added to `data.js` (or pulled from the WP staging import, where MEDIAVIDEO `mediaId` = YouTube ID).
 
-## 7. Open questions put to Aakash (5 Nov)
+## 7. Aakash's answers (5 Nov)
+1. Screenplay/directing credits: research online. Found (Wikipedia): screenplay of Ek Tha Tiger (2012, with Kabir Khan) and Tiger Zinda Hai (2017, with Ali Abbas Zafar). No directing credit besides Kood. IMDb could not be read.
+2. Film songs: show the opening lines plus the video; full lyrics only for his own Slow Music songs. (Lines are not filled in yet: the `lines` field in data.js is for the team to paste.)
+3. Photos/covers/live dates: take from the current site. Images are hotlinked from the Publish Story CDN for now (it dies ~90 days after the contract ends; move them into WordPress media at the port). The site lists no live-show dates.
+4. English only for now (no Hindi toggle).
+
+## 7a. Questions first asked (5 Nov)
 1. Screenplay credits and directing work beyond Kood?
 2. Full film-song lyrics belong to labels: show first lines + video, full lyrics only for his own Slow Music songs?
 3. High-res photos, book covers, live-show dates/booking?
 4. English-first with a हिंदी toggle?
 
 ## 8. Log
-- 2026-11-05: Browsed site, reviewed 8 references, recommended WordPress, repo created by Aakash, demo build started.
+- 2026-11-05: Browsed site, reviewed 8 references, recommended WordPress, repo created by Aakash, demo built (hub + 9 sub-sites), pushed to main and gh-pages.
+
+## 9. Known gaps in the demo
+- YouTube IDs: none could be read from this workspace (neeleshmisra.com, YouTube and the staging site are blocked by its network). Only `b6EJa74GnHM` (linked from the Kood banner) is embedded. Every other video button opens a YouTube search. Add ids to the `yt` fields in `assets/data.js`.
+- Live-show formats on /live/ are proposed copy, not confirmed offerings.
+- Song credits (music, singers) left blank except Maine Dil Se Kaha; fill from label metadata.
