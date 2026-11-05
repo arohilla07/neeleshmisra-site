@@ -618,10 +618,9 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;paddin
 
 /* =====================================================================
    ABOUT: A LIFE, TOLD SLOWLY (body.s-bk) — set like a printed memoir.
-   Colours: Sanzo Wada, A Dictionary of Color Combinations (1933), no. 343:
-   Ivory Buff #ebd3a2 · Burnt Sienna #ae5224 · Deep Grayish Olive #635a3a · Vandar Poel's Blue #064f6e
+   Colours: the site's own ink, paper and Gaon Connection red.
    ===================================================================== */
-.s-bk{--pp:#f4ead5;--pp2:#ebd3a2;--ink:#2a2116;--ink2:#6b5d48;--rule:rgba(42,33,22,.22);--sienna:#ae5224;--olive:#635a3a;--poel:#064f6e}
+.s-bk{--pp:#faf9f6;--pp2:#f1efe9;--ink:#161616;--ink2:#6a6a6a;--rule:rgba(22,22,22,.15);--sienna:#d41f26;--olive:#161616;--poel:#161616}
 .s-bk .bk{background:var(--pp);color:var(--ink);font-feature-settings:"onum" 1,"kern" 1}
 .bk-wrap{max-width:1080px;margin:0 auto;padding:0 max(20px,env(safe-area-inset-left,0px))}
 .bk .tone-sienna{--tone:var(--sienna)}.bk .tone-olive{--tone:var(--olive)}.bk .tone-ink{--tone:var(--ink)}.bk .tone-night{--tone:var(--poel)}
@@ -636,7 +635,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;paddin
 .bk-sub{font-family:var(--f-disp);font-style:italic;font-size:1.25rem;color:var(--ink2)}
 .bk-title .bk-orn{margin:2.2rem 0 2.6rem}
 .bk-plate{margin:0}
-.bk-plate img{width:100%;height:auto;filter:grayscale(1) contrast(1.08) sepia(.18);mix-blend-mode:multiply}
+.bk-plate img{width:100%;height:auto;filter:grayscale(1) contrast(1.05);mix-blend-mode:multiply}
 .bk-plate figcaption{font-family:var(--f-disp);font-style:italic;font-size:.95rem;color:var(--ink2);margin-top:.7rem;line-height:1.4}
 .bk-plate figcaption b{font-style:normal;font-weight:500;font-variant:small-caps;letter-spacing:.06em;color:var(--ink)}
 .bk-plate-hero{width:min(100%,430px);margin:0 auto}
@@ -683,7 +682,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;paddin
 .bk-row dt span{display:block;font-family:var(--f-disp);font-size:1.05rem;color:var(--tone)}
 .bk-row dt em{display:block;font-family:var(--f-disp);font-size:.92rem;color:var(--ink2);line-height:1.35}
 .bk-row dd{margin:0;font-family:var(--f-disp);font-size:1.12rem;line-height:1.5}
-.bk-inset{display:block;width:110px;margin-top:.8rem;filter:grayscale(1) sepia(.15);mix-blend-mode:multiply}
+.bk-inset{display:block;width:110px;margin-top:.8rem;filter:grayscale(1);mix-blend-mode:multiply}
 .bk-pull{margin:3rem 0 0;padding:0;text-align:left}
 .bk-pull p{font-family:var(--f-disp);font-style:italic;font-size:clamp(1.7rem,3vw,2.4rem);line-height:1.22;text-indent:-.42em;color:var(--tone)}
 .bk-pull p::before{content:"“"}.bk-pull p::after{content:"”"}
@@ -693,10 +692,10 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;paddin
 .bk-break{text-align:center;color:var(--ink2);font-size:.9rem;margin:0;opacity:.7}
 
 /* the one night page */
-.bk-ch.is-night{background:var(--poel);color:#efe4cc;--tone:#ebd3a2;--ink2:#a9bcc4;--rule:rgba(235,211,162,.25);margin:2rem 0}
-.bk-ch.is-night .bk-alm{border-top-color:#ebd3a2}
+.bk-ch.is-night{background:#161616;color:#f1f1ee;--tone:#ff5a5f;--ink2:#a3a3a0;--rule:rgba(241,241,238,.18);margin:2rem 0}
+.bk-ch.is-night .bk-alm{border-top-color:#f1f1ee}
 .bk-ch.is-night .bk-plate img{mix-blend-mode:normal;filter:grayscale(1) contrast(1.05)}
-.bk-ch.is-night .bk-plate figcaption b{color:#efe4cc}
+.bk-ch.is-night .bk-plate figcaption b{color:#f1f1ee}
 
 /* colophon */
 .bk-colophon{padding:5rem 0 4.5rem;border-top:1px solid var(--rule);text-align:center}
