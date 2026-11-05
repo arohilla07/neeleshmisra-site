@@ -199,6 +199,29 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;paddin
 @media (hover:none),(max-width:900px){.role .peek{display:none}}
 .now{background:var(--panel);padding:3.5rem 0;margin-top:4rem}
 .now .grid{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:1.6rem}
+.now2{background:#161616;color:#f1f1ee;padding:5rem 0;position:relative;overflow:hidden}
+.now2::before{content:"";position:absolute;width:60vw;height:60vw;right:-20vw;top:-30vw;background:radial-gradient(closest-side,rgba(212,31,38,.28),transparent);pointer-events:none}
+.now-head{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;margin-bottom:2.2rem;flex-wrap:wrap}
+.now-head h2{font-size:var(--s3)}
+.now-head p{color:#9f9f9b;font-family:var(--f-disp);font-style:italic;font-size:1.15rem}
+.now2 .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem;position:relative}
+.ncard{display:flex;flex-direction:column;background:#1e1e1e;border:1px solid #2c2c2c;transition:transform .35s,border-color .35s,background .35s;color:#f1f1ee}
+.ncard:hover{transform:translateY(-6px);border-color:#d41f26;background:#222;color:#f1f1ee}
+.nimg{position:relative;aspect-ratio:16/9;background:#2a2a2a center/cover no-repeat;overflow:hidden}
+.nimg::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 55%,rgba(0,0,0,.55));transition:opacity .35s}
+.nplay{position:absolute;left:50%;top:50%;width:58px;height:58px;margin:-29px 0 0 -29px;border-radius:50%;background:rgba(0,0,0,.55);border:1px solid rgba(255,255,255,.4);display:grid;place-items:center;z-index:1;transition:.3s;backdrop-filter:blur(4px)}
+.nplay svg{width:18px;height:18px;margin-left:3px}
+.ncard:hover .nplay{background:#d41f26;border-color:#d41f26;transform:scale(1.08)}
+.nnum{position:absolute;left:14px;bottom:10px;z-index:1;font-family:var(--f-disp);font-size:2rem;line-height:1;color:#fff}
+.nbody{padding:1.3rem 1.3rem 1.5rem;display:flex;flex-direction:column;flex:1}
+.ntag{display:flex;align-items:center;gap:.6rem;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:#9f9f9b;font-weight:600}
+.ntag span{background:#d41f26;color:#fff;padding:.15rem .5rem;letter-spacing:.1em}
+.ncard h3{font-size:1.5rem;line-height:1.2;margin:.8rem 0 .5rem}
+.nd{color:#b5b5b0;font-size:.95rem;flex:1}
+.ncta{display:inline-flex;align-items:center;gap:.4rem;font-weight:600;font-size:.9rem;margin-top:1.1rem;color:#ff7a7e}
+.ncta svg{width:1em;height:1em;transition:transform .3s}
+.ncard:hover .ncta svg{transform:translateX(4px)}
+@media (max-width:900px){.now2 .grid{grid-template-columns:1fr}}
 .card .k{margin:.9rem 0 .3rem}
 .card h3{font-size:1.45rem}
 .card p{color:var(--muted);font-size:.95rem;margin-top:.35rem}
