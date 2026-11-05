@@ -86,7 +86,6 @@ NM.page=function(){
   function big(n){return n>=1e6?(n/1e6).toFixed(n>=1e7?0:1).replace(/\.0$/,"")+"M":n>=1e3?Math.round(n/1e3)+"K":String(n)}
   var st=[[talks.length,"guests"],[Math.floor(hours),"hours of talk"],[5,"seasons"]];
   if(NM.siViews)st.push([big(NM.siViews)+"+","views"]);
-  st.push([0,"gotchas"]);
   NM.$("#stats").innerHTML=st.map(function(s){return '<div><dt>'+s[1]+'</dt><dd>'+s[0]+'</dd></div>'}).join("");
   /* the wall: every guest, drifting very slowly */
   var ids=talks.map(function(v){return v.parts[0].yt}),cols=[[],[],[],[]];
