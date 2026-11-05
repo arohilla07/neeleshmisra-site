@@ -11,6 +11,8 @@ window.NM = {
     address: "Vishal Khand, Gomti Nagar, Lucknow, Uttar Pradesh 226010",
     enquiry: "https://41svr5.share-na2.hsforms.com/2yKttTuDqRIm1S34A2dU-Ng",
     workWithUs: "https://41svr5.share-na2.hsforms.com/2f6pZw1dbTRm4RXybywaM0w",
+    hero: "https://staticimg.publishstory.co/thumb/125379537.cms?imgsize=32688&width=1920&resizemode=4",
+    heroCredit: "",
     portrait: "https://staticimg.publishstory.co/thumb/125379537.cms?imgsize=32688&width=1280&height=720&resizemode=4",
     whatsapp: "https://api.whatsapp.com/send?phone=916393700123",
     social: {

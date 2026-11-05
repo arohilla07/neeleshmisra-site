@@ -42,16 +42,32 @@
   /* ---- footer ---- */
   var ft = $("#foot");
   if (ft) {
-    var P=D.person, half=Math.ceil(ROOMS.length/2);
-    ft.className="foot";
-    ft.innerHTML='<div class="wrap"><div class="grid">'+
-      '<div><div class="sig">Neelesh Misra</div><p style="margin-top:1rem;color:#bdbdb8;max-width:34ch;font-size:.95rem">Storyteller, lyricist, filmmaker, journalist. Founder of Gaon Connection and The Slow Movement.</p></div>'+
-      '<div><h4>The work</h4><ul>'+ROOMS.slice(0,half).map(function(r){return '<li><a href="'+ROOT+r[0]+'/">'+r[1]+'</a></li>'}).join("")+'</ul></div>'+
-      '<div><h4>More</h4><ul>'+ROOMS.slice(half).map(function(r){return '<li><a href="'+ROOT+r[0]+'/">'+r[1]+'</a></li>'}).join("")+
-        '<li><a href="https://www.gaonconnection.com/">Gaon Connection</a></li><li><a href="https://slowbazaar.com/">Slow Bazaar</a></li></ul></div>'+
-      '<div><h4>Write to us</h4><ul><li><a href="'+P.enquiry+'">Business enquiry</a></li><li><a href="'+P.workWithUs+'">Work with us</a></li><li><a href="mailto:'+P.email+'">Email the office</a></li></ul>'+
-        '<h4 style="margin-top:1.4rem">Follow</h4><ul>'+Object.keys(P.social).map(function(k){return '<li><a href="'+P.social[k]+'">'+k+'</a></li>'}).join("")+'</ul></div>'+
-      '</div><div class="bottom"><span>© 2026 Neelesh Misra · '+esc(P.address)+'</span><span>A Slow Movement website · part of the <a href="https://www.gaonconnection.com/">Gaon Connection</a> family</span></div></div>';
+    var P=D.person;
+    var SOC={YouTube:'<path d="M23 7.5a3 3 0 0 0-2.1-2.1C19 5 12 5 12 5s-7 0-8.9.4A3 3 0 0 0 1 7.5 31 31 0 0 0 .6 12 31 31 0 0 0 1 16.5a3 3 0 0 0 2.1 2.1C5 19 12 19 12 19s7 0 8.9-.4a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .4-4.5 31 31 0 0 0-.4-4.5zM9.7 15V9l5.3 3z" fill="currentColor"/>',
+      Instagram:'<rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="17.3" cy="6.7" r="1.2" fill="currentColor"/>',
+      X:'<path d="M17.8 3h3.2l-7 8 8.2 10h-6.4l-5-6.3L5 21H1.8l7.5-8.6L1.4 3h6.6l4.5 5.8zm-1.1 16.2h1.8L7.4 4.7H5.5z" fill="currentColor"/>',
+      Facebook:'<path d="M14 8.5V6.8c0-.8.2-1.3 1.4-1.3H17V2.6c-.3 0-1.3-.1-2.4-.1-2.4 0-4 1.4-4 4.1v1.9H8V11.6h2.6V21.5H14V11.6h2.6l.4-3.1z" fill="currentColor"/>',
+      LinkedIn:'<path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.5h4v11H3zm7 0h3.8v1.6h.1c.5-1 1.8-2 3.8-2 4 0 4.8 2.6 4.8 6v5.4h-4v-4.8c0-1.2 0-2.6-1.6-2.6s-1.9 1.2-1.9 2.5v4.9h-4z" fill="currentColor"/>'};
+    var blurb={lyrics:"33 film songs",films:"Kood, 2026",writer:"Ek Tha Tiger, Kood",radio:"Yaadon Ka Idiot Box",live:"Book a show",books:"Ten books","slow-interview":"Long conversations",journalist:"1995 onward",about:"The whole story"};
+    ft.className="foot foot2";
+    ft.innerHTML=
+      '<div class="wrap">'+
+        '<div class="f-top">'+
+          '<div class="f-say"><p class="label">Write to Neelesh</p><h2>Have a story,<br>a stage, or an idea?</h2></div>'+
+          '<div class="f-ctas">'+
+            '<a class="f-cta" href="'+P.enquiry+'"><span class="label">Business</span><b>Brands, films, collaborations</b><span class="go">'+ICON.arrow+'</span></a>'+
+            '<a class="f-cta" href="'+ROOT+'live/"><span class="label">Live</span><b>Bring the show to your city</b><span class="go">'+ICON.arrow+'</span></a>'+
+            '<a class="f-cta" href="'+P.whatsapp+'"><span class="label">WhatsApp</span><b>Get stories from Neelesh</b><span class="go">'+ICON.arrow+'</span></a>'+
+          '</div>'+
+        '</div>'+
+        '<nav class="f-index" aria-label="All of Neelesh\'s work">'+ROOMS.map(function(r,i){return '<a href="'+ROOT+r[0]+'/"><span class="n">0'+(i+1)+'</span><b>'+r[1]+'</b><small>'+blurb[r[0]]+'</small></a>'}).join("")+'</nav>'+
+        '<div class="f-mid">'+
+          '<div class="f-soc">'+Object.keys(SOC).map(function(k){return '<a href="'+P.social[k]+'" aria-label="'+k+'" title="'+k+'"><svg viewBox="0 0 24 24">'+SOC[k]+'</svg></a>'}).join("")+'</div>'+
+          '<div class="f-fam"><span class="label">The Slow Movement</span><a href="https://www.gaonconnection.com/">Gaon Connection</a><a href="'+P.social["Slow Music"]+'">Slow Music</a><a href="https://slowbazaar.com/">Slow Bazaar</a><a href="'+P.workWithUs+'">Work with us</a><a href="mailto:'+P.email+'">'+P.email+'</a></div>'+
+        '</div>'+
+      '</div>'+
+      '<div class="f-mark" aria-hidden="true">Neelesh Misra</div>'+
+      '<div class="wrap f-bottom"><span>© 2026 Neelesh Misra · '+esc(P.address)+'</span><span>Made slowly, in Lucknow · <a href="'+ROOT+'about/">About</a></span></div>';
   }
 
   /* ---- video ---- */

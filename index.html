@@ -18,16 +18,21 @@
 <body class="s-hub" data-page="hub" data-root="">
 <header id="ubar"></header>
 <main>
-  <section class="wrap hero">
-    <h1>Neelesh<br>Misra</h1>
-    <div class="bio rv">
-      <p>tells stories. In film songs, on the radio at 9 PM, in cinema, on stage, in books, and in a newspaper for India's villages.</p>
-      <p>He began as a reporter chasing hijackings and cyclones, and found his way to <em>slowing down</em>.</p>
-      <p>Today he runs <a class="lnk" href="https://www.gaonconnection.com/">Gaon Connection</a> and The Slow Movement from Lucknow.</p>
+  <section class="hero2" aria-label="Neelesh Misra">
+    <figure class="h-photo" id="hphoto"><figcaption id="hcap"></figcaption></figure>
+    <div class="wrap h-in">
+      <p class="label dot h-k">Storyteller · Lucknow</p>
+      <h1>Neelesh<br>Misra</h1>
+      <div class="bio">
+        <p>tells stories. In film songs, on the radio at 9 PM, in cinema, on stage, in books, and in a newspaper for India's villages.</p>
+        <p>He began as a reporter chasing hijackings and cyclones, and found his way to <em>slowing down</em>.</p>
+      </div>
+      <div class="h-acts"><a class="btn solid" href="films/">Watch Kood</a><a class="btn" href="lyrics/">Open the songbook</a></div>
     </div>
+    <a class="h-scroll" href="#work" aria-label="See the work">↓</a>
   </section>
 
-  <section class="wrap" aria-label="The work">
+  <section class="wrap" id="work" aria-label="The work" style="padding-top:4.5rem">
     <p class="label dot" style="margin-bottom:1rem">The work</p>
     <div class="roles" id="roles"></div>
   </section>
@@ -55,6 +60,7 @@
 <script src="assets/app.js"></script>
 <script>
 NM.page=function(){
+  var hp=NM.$('#hphoto'); if(NM.person.hero){hp.style.backgroundImage='url('+NM.person.hero+')'; if(NM.person.heroCredit)NM.$('#hcap').textContent=NM.person.heroCredit}
   var what={
     lyrics:["33 film songs, from Jism to Metro… In Dino","#2b3f8c","Jaadu Hai Nasha Hai"],
     films:["Kood, a film he wrote and directed","#0b0b0c","Kood"],
