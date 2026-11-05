@@ -13,27 +13,157 @@
 <title>The Slow Interview with Neelesh Misra</title>
 <meta name="description" content="Long, unhurried conversations with actors, musicians, founders and thinkers. Hosted by Neelesh Misra.">
 <meta property="og:title" content="The Slow Interview with Neelesh Misra">
-<meta property="og:description" content="Ayushmann Khurrana, Satinder Sartaaj, Alakh Pandey, Divya Dutta and more.">
-<link rel="stylesheet" href="../assets/site.css?v=1793852261">
+<meta property="og:description" content="No rush. No clock. No gotcha. Long conversations with people who have lived interesting lives.">
+<link rel="stylesheet" href="../assets/site.css?v=1793853604">
 </head>
 <body class="s-si" data-page="slow-interview" data-root="../">
 <header id="ubar"></header>
 <main>
-  <section class="wrap mast">
-    <p class="label kicker dot">Host · since 2018</p>
-    <h1>The Slow<br><i>Interview</i></h1>
-    <p class="lede">No rush, no clock, no gotcha. Neelesh sits down with people who have lived interesting lives and lets them talk for as long as it takes.</p>
+  <!-- 1. Opening: the clock that doesn't hurry -->
+  <section class="si-hero">
+    <div class="wrap si-hero-in">
+      <div class="si-hero-copy">
+        <p class="label dot">A conversation show · hosted by Neelesh Misra</p>
+        <h1>The Slow<br><i>Interview</i></h1>
+        <p class="lede">Artists, actors, musicians, writers and founders, speaking not as public figures but as people. Nobody is watching the time.</p>
+        <div class="si-stats" id="stats"></div>
+      </div>
+      <div class="si-clock" aria-hidden="true">
+        <svg viewBox="0 0 200 200">
+          <circle cx="100" cy="100" r="96" class="c-face"/>
+          <g class="c-ticks"></g>
+          <line x1="100" y1="100" x2="100" y2="48" class="c-h"/>
+          <line x1="100" y1="100" x2="100" y2="26" class="c-m"/>
+          <line x1="100" y1="112" x2="100" y2="18" class="c-s"/>
+          <circle cx="100" cy="100" r="3.5" class="c-pin"/>
+        </svg>
+        <p class="si-clock-cap">The clock in the room runs slow on purpose.</p>
+      </div>
+    </div>
   </section>
-  <section class="wrap slowgrid" id="grid" aria-label="Episodes"></section>
-  <section class="wrap" style="padding-bottom:5rem"><a class="btn" href="https://www.youtube.com/@NeeleshMisra">Every episode on YouTube</a></section>
+
+  <!-- 2. The three rules -->
+  <section class="si-rules" aria-label="The rules">
+    <div class="wrap">
+      <ol>
+        <li class="rv"><b>No rush.</b><span>An episode lasts as long as the conversation does. Most run past two hours. A few go close to four.</span></li>
+        <li class="rv"><b>No clock.</b><span>No segments, no lightning rounds, no "one last question".</span></li>
+        <li class="rv"><b>No gotcha.</b><span>Nobody is trying to trip anyone. People say what they came to say.</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- 3. Featured conversation -->
+  <section class="si-feat" aria-label="Featured conversation"><div class="wrap" id="feat"></div></section>
+
+  <!-- 4. Seasons -->
+  <section class="wrap si-seasons" aria-label="Seasons"><div class="seas" id="seas" role="group" aria-label="Filter by season"></div></section>
+
+  <!-- 5. The guest index -->
+  <section class="wrap si-index" aria-label="All conversations">
+    <div class="si-index-head">
+      <h2 class="sec-title dot">Every conversation</h2>
+      <div class="si-tools">
+        <div class="chips" id="chips" role="group" aria-label="Filter by field"></div>
+        <button class="sortbtn" id="sort" aria-pressed="false">Longest first</button>
+      </div>
+    </div>
+    <ol class="si-list" id="list"></ol>
+    <button class="btn si-more" id="more" hidden></button>
+  </section>
+
+  <!-- 5. Quote wall -->
+  <section class="si-quotes" aria-label="Things guests said"><div class="wrap"><p class="label">Overheard at The Slow Interview</p><div class="qwall" id="quotes"></div></div></section>
+
+  <!-- 6. A Slow Day -->
+  <section class="wrap si-day" id="day" aria-label="A Slow Day with Neelesh Misra"></section>
+
+  <!-- 7. Close -->
+  <section class="wrap si-cta">
+    <h2>Someone we should sit down with?</h2>
+    <p>Tell us who. We'll make the time.</p>
+    <div class="si-cta-btns"><a class="btn solid" id="suggest" href="#">Suggest a guest</a><a class="btn" href="https://www.youtube.com/@NeeleshMisra">Subscribe on YouTube</a></div>
+  </section>
 </main>
 <footer id="foot"></footer>
-<script src="../assets/data.js?v=1793852261"></script>
-<script src="../assets/app.js?v=1793852261"></script>
+<script src="../assets/data.js?v=1793853604"></script>
+<script src="../assets/app.js?v=1793853604"></script>
 <script>
 NM.page=function(){
-  var E=NM.esc;
-  NM.$("#grid").innerHTML=NM.interviews.map(function(v){return '<div class="card rv">'+NM.video({yt:v.yt,cap:v.d?v.d:"",q:v.t+" The Slow Interview Neelesh Misra",bg:v.img})+'<h3>'+E(v.t)+'</h3><p>'+E(v.sub)+'</p></div>'}).join("");
+  var E=NM.esc,I=NM.icon,P=NM.person,all=NM.interviews;
+  function tot(v){return v.parts.reduce(function(a,p){return a+p.s},0)}
+  function nice(s){if(!s)return "";var h=Math.floor(s/3600),m=Math.round((s%3600)/60);if(m===60){h++;m=0}return h?(h+" hr"+(m?" "+m+" min":"")):m+" min"}
+  function hms(t){var p=t.split(":").map(Number),s=0;p.forEach(function(x){s=s*60+x});return s}
+  var talks=all.filter(function(v){return v.series!=="day"}),days=all.filter(function(v){return v.series==="day"});
+  var max=Math.max.apply(null,talks.map(tot)),hours=all.reduce(function(a,v){return a+tot(v)},0)/3600;
+  var longest=talks.slice().sort(function(a,b){return tot(b)-tot(a)})[0];
+
+  NM.$("#stats").innerHTML='<div><b>'+talks.length+'</b><span>guests</span></div><div><b>'+Math.floor(hours)+'</b><span>hours of talk</span></div><div><b>5</b><span>seasons</span></div><div><b>0</b><span>gotchas</span></div>';
+
+  var g=NM.$(".c-ticks"),t="";for(var i=0;i<60;i++){var a=i*6*Math.PI/180,r1=i%5?88:82;t+='<line x1="'+(100+r1*Math.sin(a)).toFixed(2)+'" y1="'+(100-r1*Math.cos(a)).toFixed(2)+'" x2="'+(100+92*Math.sin(a)).toFixed(2)+'" y2="'+(100-92*Math.cos(a)).toFixed(2)+'"'+(i%5?'':' class="big"')+'/>'}g.innerHTML=t;
+
+  /* featured */
+  var f=talks.filter(function(v){return v.t==="Ayushmann Khurrana"})[0];
+  NM.$("#feat").innerHTML='<div class="f-q rv"><p class="label">In conversation · Season '+f.season+'</p><blockquote>“'+E(f.q)+'”</blockquote><p class="who"><b>'+E(f.t)+'</b> · '+E(f.role)+'</p><p class="len">'+nice(tot(f))+' of conversation. The longest so far: '+nice(tot(longest))+' with '+E(longest.t)+'.</p></div><div class="f-v rv">'+NM.video({yt:f.parts[0].yt,q:f.t+" The Slow Interview"})+'</div>';
+
+  /* seasons */
+  var SEAS=[["1","2018–19"],["2","2019–20"],["3","2021–23"],["4","2024"],["","Between seasons"],["5","2026"]];
+  NM.$("#seas").innerHTML='<button class="sea" data-s="*" aria-pressed="true"><b>All</b><span>2018 onward</span><em>'+talks.length+' guests</em></button>'+SEAS.map(function(x){var n=talks.filter(function(v){return String(v.season)===x[0]}).length;return '<button class="sea" data-s="'+x[0]+'" aria-pressed="false"><b>'+(x[0]?'Season '+x[0]:'2025')+'</b><span>'+x[1]+'</span><em>'+n+' guest'+(n>1?'s':'')+'</em></button>'}).join("");
+
+  /* index */
+  var fields=["All"];talks.forEach(function(v){if(fields.indexOf(v.field)<0)fields.push(v.field)});
+  var order=["All","Actors","Filmmakers","Music","Writers & poets","Founders","Teachers","Comedy","Chefs","Sport & public life"];
+  fields.sort(function(a,b){return order.indexOf(a)-order.indexOf(b)});
+  var cur="All",sea="*",byLen=false,showAll=false,LIM=12;
+  NM.$("#chips").innerHTML=fields.map(function(x,i){return '<button class="chip" data-f="'+E(x)+'" aria-pressed="'+(i===0)+'">'+E(x)+'</button>'}).join("");
+  function row(v,n){var s=tot(v);
+    return '<li class="si-row" data-k="'+all.indexOf(v)+'">'+
+      '<button class="si-head" aria-expanded="false"><span class="n">'+String(n).padStart(2,"0")+'</span>'+
+      '<span class="g"><b>'+E(v.t)+'</b><small>'+E(v.role)+' · '+(v.season?'S'+v.season+(v.ep?' E'+v.ep:''):v.date.slice(0,4))+'</small></span>'+
+      (v.q?'<span class="q">“'+E(v.q)+'”</span>':'<span class="q hook">'+E(v.hook)+'</span>')+
+      '<span class="len"><span class="bar"><i style="width:'+Math.max(4,s/max*100)+'%"></i></span><em>'+nice(s)+(v.parts.length>1?' · '+v.parts.length+' parts':'')+'</em></span>'+
+      '<span class="pl">'+I.play+'</span></button><div class="si-body" hidden></div></li>'}
+  function draw(){
+    var L=talks.filter(function(v){return (cur==="All"||v.field===cur)&&(sea==="*"||String(v.season)===sea)});
+    L=byLen?L.slice().sort(function(a,b){return tot(b)-tot(a)}):L.slice().reverse();
+    var n=L.length,V=showAll?L:L.slice(0,LIM);
+    NM.$("#list").innerHTML=n?V.map(function(v,i){return row(v,i+1)}).join(""):'<li class="si-empty">No conversations here yet.</li>';
+    var m=NM.$("#more");m.hidden=n<=LIM;m.textContent=showAll?"Show fewer":"Show all "+n+" conversations";
+  }
+  draw();
+  function player(v,pi,at){var p=v.parts[pi];
+    return at==null?NM.video({yt:p.yt,q:v.t+" The Slow Interview"}):'<div class="vid"><iframe src="https://www.youtube-nocookie.com/embed/'+p.yt+'?autoplay=1&rel=0&start='+at+'" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen title="'+E(v.t)+'"></iframe></div>'}
+  function notes(v,pi){var p=v.parts[pi];
+    var tabs=v.parts.length>1?'<div class="parts">'+v.parts.map(function(x,i){return '<button data-p="'+i+'" aria-pressed="'+(i===pi)+'">Part '+(i+1)+' · '+nice(x.s)+'</button>'}).join("")+'</div>':'';
+    var ch=(p.ch||[]).map(function(c){return '<li><button data-at="'+hms(c[0])+'"><span>'+E(c[0])+'</span>'+E(c[1])+'</button></li>'}).join("");
+    var M=['January','February','March','April','May','June','July','August','September','October','November','December'],dt=v.date.split('-');
+    return tabs+'<p class="meta">'+(v.season?'Season '+v.season+(v.ep?', episode '+v.ep:'')+' · ':'')+M[+dt[1]-1]+' '+dt[0]+' · '+nice(p.s)+'</p>'+(v.about?'<p>'+E(v.about)+'</p>':'')+(ch?'<p class="label">Jump to a moment</p><ol class="chap">'+ch+'</ol>':'')+
+      '<a class="lnk" href="https://www.youtube.com/watch?v='+p.yt+'" target="_blank" rel="noopener">Watch on YouTube '+I.arrow+'</a>'}
+  function open(li,pi){var v=all[+li.getAttribute("data-k")],b=NM.$(".si-body",li);li._pi=pi||0;
+    b.innerHTML='<div class="si-player">'+player(v,li._pi)+'</div><div class="si-notes">'+notes(v,li._pi)+'</div>';
+    b.hidden=false;NM.$(".si-head",li).setAttribute("aria-expanded","true");li.classList.add("open")}
+  document.addEventListener("click",function(e){
+    var c=e.target.closest(".chip");if(c){cur=c.getAttribute("data-f");NM.$$(".chip").forEach(function(x){x.setAttribute("aria-pressed",x===c)});draw();return}
+    var se=e.target.closest(".sea");if(se){sea=se.getAttribute("data-s");NM.$$(".sea").forEach(function(x){x.setAttribute("aria-pressed",x===se)});draw();return}
+    if(e.target.closest("#more")){showAll=!showAll;draw();if(!showAll)NM.$(".si-index").scrollIntoView();return}
+    if(e.target.closest("#sort")){byLen=!byLen;var sb=NM.$("#sort");sb.setAttribute("aria-pressed",byLen);sb.textContent=byLen?"Newest first":"Longest first";draw();return}
+    var li=e.target.closest(".si-row");if(!li)return;var v=all[+li.getAttribute("data-k")];
+    var pb=e.target.closest("[data-p]");if(pb){open(li,+pb.getAttribute("data-p"));return}
+    var at=e.target.closest("[data-at]");if(at){NM.$(".si-player",li).innerHTML=player(v,li._pi||0,at.getAttribute("data-at"));return}
+    var h=e.target.closest(".si-head");if(h){
+      if(li.classList.contains("open")){li.classList.remove("open");h.setAttribute("aria-expanded","false");var bd=NM.$(".si-body",li);bd.hidden=true;bd.innerHTML=""}
+      else open(li,0)}
+  });
+
+  /* quotes */
+  NM.$("#quotes").innerHTML=talks.filter(function(v){return v.q&&v!==f}).map(function(v){return '<figure class="rv"><blockquote>“'+E(v.q)+'”</blockquote><figcaption>'+E(v.t)+'</figcaption></figure>'}).join("");
+
+  /* a slow day */
+  NM.$("#day").innerHTML='<div class="day-in"><div class="day-head"><p class="label dot">The new series · 2026</p><h2>A Slow Day <i>with Neelesh Misra</i></h2><p>The conversations move into business, ambition, leadership and ideas. Neelesh spends a whole day with people who build things.</p></div><div class="day-grid">'+
+    days.map(function(v){return '<div class="rv">'+NM.video({yt:v.parts[0].yt,cap:nice(tot(v)),q:v.t+" A Slow Day"})+'<h3>'+E(v.t)+'</h3><p>'+E(v.role)+'. '+E(v.hook)+'</p></div>'}).join("")+
+    '<div class="day-more"><p class="label">Also from the show</p>'+NM.interviewExtras.map(function(x){return '<a href="https://www.youtube.com/watch?v='+x.yt+'" target="_blank" rel="noopener"><b>'+E(x.t)+'</b><span>'+E(x.hook)+' · '+nice(x.s)+'</span></a>'}).join("")+'</div></div></div>';
+
+  NM.$("#suggest").href=P.enquiry;
 };
 </script>
 </body>
