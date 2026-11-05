@@ -724,3 +724,10 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;paddin
 }
 .bk-colo dd{overflow-wrap:anywhere;min-width:0}.bk-colo>*{min-width:0}@media (max-width:860px){.bk-colo dl div{grid-template-columns:5.5rem minmax(0,1fr)}}
 .rl .rb span{display:none}
+.bk-title{text-align:left;padding:3.5rem 0 3rem}
+.bk-title-in{display:grid;grid-template-columns:1fr 300px;gap:3rem;align-items:center}
+.bk-title h1{margin:1.2rem 0 1rem}
+.bk-plate-hero{width:300px;margin:0}
+.bk-plate-hero img{aspect-ratio:4/5}
+@media (max-width:760px){.bk-title-in{grid-template-columns:1fr 38%;gap:1.4rem}.bk-plate-hero{width:100%}.bk-title{padding:2.4rem 0 2rem}.bk-title h1{font-size:clamp(2.4rem,11vw,3.4rem)}.bk-sub{font-size:1rem}.bk-plate-hero figcaption{font-size:.75rem}}
+.bk-contents .y{white-space:nowrap}@media (max-width:560px){.bk-contents a{font-size:1.1rem;gap:.6rem}.bk-contents .y{font-size:.85rem}.bk-contents .r{min-width:1.8rem}}
