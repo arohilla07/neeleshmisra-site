@@ -63,11 +63,11 @@
         '<nav class="f-index" aria-label="All of Neelesh\'s work">'+ROOMS.map(function(r,i){return '<a href="'+ROOT+r[0]+'/"><span class="n">0'+(i+1)+'</span><b>'+r[1]+'</b><small>'+blurb[r[0]]+'</small></a>'}).join("")+'<a href="https://www.gaonconnection.com/" class="f-gc"><span class="n">↗</span><b>Gaon Connection</b><small>Founded 2012</small></a></nav>'+
         '<div class="f-mid">'+
           '<div class="f-soc">'+Object.keys(SOC).map(function(k){return '<a href="'+P.social[k]+'" aria-label="'+k+'" title="'+k+'"><svg viewBox="0 0 24 24">'+SOC[k]+'</svg></a>'}).join("")+'</div>'+
-          '<div class="f-fam"><span class="label">The Slow Movement</span><a href="https://www.gaonconnection.com/">Gaon Connection</a><a href="'+P.social["Slow Music"]+'">Slow Music</a><a href="https://slowbazaar.com/">Slow Bazaar</a><a href="'+P.workWithUs+'">Work with us</a><a href="mailto:'+P.email+'">'+P.email+'</a></div>'+
+          '<div class="f-fam"><span class="label">The Slow Movement</span><a href="https://www.gaonconnection.com/">Gaon Connection</a><a href="'+P.social["Slow Music"]+'">Slow Music</a><a href="https://slowbazaar.com/">Slow Bazaar</a><a href="'+P.workWithUs+'">Work with us</a><span class="f-made">Made slowly in Mumbai</span></div>'+
         '</div>'+
       '</div>'+
-      '<div class="f-mark" aria-hidden="true">Neelesh Misra</div>'+
-      '<div class="wrap f-bottom"><span>© 2026 Neelesh Misra · '+esc(P.address)+'</span><span>Made slowly, in Lucknow · <a href="'+ROOT+'about/">About</a></span></div>';
+      '<div class="f-ground"><a class="f-mark" href="'+ROOT+'about/" aria-label="About Neelesh Misra">'+'Neelesh Misra'.split("").map(function(c,i){return '<span style="--i:'+i+'">'+(c===" "?"&nbsp;":c)+'</span>'}).join("")+'</a></div>'+
+      '';
   }
 
   /* ---- video ---- */
