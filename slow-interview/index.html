@@ -14,42 +14,27 @@
 <meta name="description" content="Long, unhurried conversations with actors, musicians, founders and thinkers. Hosted by Neelesh Misra.">
 <meta property="og:title" content="The Slow Interview with Neelesh Misra">
 <meta property="og:description" content="No rush. No clock. No gotcha. Long conversations with people who have lived interesting lives.">
-<link rel="stylesheet" href="../assets/site.css?v=1793854007">
+<link rel="stylesheet" href="../assets/site.css?v=1793854650">
 </head>
 <body class="s-si" data-page="slow-interview" data-root="../">
 <header id="ubar"></header>
 <main>
-  <!-- 1. Opening: the clock that doesn't hurry -->
+  <!-- 1. Opening: a slow wall of faces -->
   <section class="si-hero">
+    <div class="si-wall" id="wall" aria-hidden="true"></div>
     <div class="wrap si-hero-in">
-      <div class="si-hero-copy">
-        <p class="label dot">A conversation show · hosted by Neelesh Misra</p>
-        <h1>The Slow<br><i>Interview</i></h1>
-        <p class="lede">Artists, actors, musicians, writers and founders, speaking not as public figures but as people. Nobody is watching the time.</p>
-        <div class="si-stats" id="stats"></div>
-      </div>
-      <div class="si-clock" aria-hidden="true">
-        <svg viewBox="0 0 200 200">
-          <circle cx="100" cy="100" r="96" class="c-face"/>
-          <g class="c-ticks"></g>
-          <line x1="100" y1="100" x2="100" y2="48" class="c-h"/>
-          <line x1="100" y1="100" x2="100" y2="26" class="c-m"/>
-          <line x1="100" y1="112" x2="100" y2="18" class="c-s"/>
-          <circle cx="100" cy="100" r="3.5" class="c-pin"/>
-        </svg>
-        <p class="si-clock-cap">The clock in the room runs slow on purpose.</p>
-      </div>
+      <p class="label dot">A conversation show · hosted by Neelesh Misra · since 2018</p>
+      <h1>The Slow<br><i>Interview</i></h1>
+      <p class="lede">Artists, actors, musicians, writers and founders, speaking not as public figures but as people. Nobody is watching the time.</p>
+      <dl class="si-stats" id="stats"></dl>
     </div>
   </section>
 
   <!-- 2. The three rules -->
   <section class="si-rules" aria-label="The rules">
     <div class="wrap">
-      <ol>
-        <li class="rv"><b>No rush.</b><span>An episode lasts as long as the conversation does. Most run past two hours. A few go close to four.</span></li>
-        <li class="rv"><b>No clock.</b><span>No segments, no lightning rounds, no "one last question".</span></li>
-        <li class="rv"><b>No gotcha.</b><span>Nobody is trying to trip anyone. People say what they came to say.</span></li>
-      </ol>
+      <p class="rules-line"><span>No rush.</span> <span>No clock.</span> <span>No gotcha.</span></p>
+      <p class="rules-sub">An episode lasts as long as the conversation does. No segments, no lightning rounds, nobody trying to trip anyone. Most run past two hours.</p>
     </div>
   </section>
 
@@ -86,8 +71,8 @@
   </section>
 </main>
 <footer id="foot"></footer>
-<script src="../assets/data.js?v=1793854007"></script>
-<script src="../assets/app.js?v=1793854007"></script>
+<script src="../assets/data.js?v=1793854650"></script>
+<script src="../assets/app.js?v=1793854650"></script>
 <script>
 NM.page=function(){
   var E=NM.esc,I=NM.icon,P=NM.person,all=NM.interviews;
@@ -98,9 +83,15 @@ NM.page=function(){
   var max=Math.max.apply(null,talks.map(tot)),hours=all.reduce(function(a,v){return a+tot(v)},0)/3600;
   var longest=talks.slice().sort(function(a,b){return tot(b)-tot(a)})[0];
 
-  NM.$("#stats").innerHTML='<div><b>'+talks.length+'</b><span>guests</span></div><div><b>'+Math.floor(hours)+'</b><span>hours of talk</span></div><div><b>5</b><span>seasons</span></div><div><b>0</b><span>gotchas</span></div>';
-
-  var g=NM.$(".c-ticks"),t="";for(var i=0;i<60;i++){var a=i*6*Math.PI/180,r1=i%5?88:82;t+='<line x1="'+(100+r1*Math.sin(a)).toFixed(2)+'" y1="'+(100-r1*Math.cos(a)).toFixed(2)+'" x2="'+(100+92*Math.sin(a)).toFixed(2)+'" y2="'+(100-92*Math.cos(a)).toFixed(2)+'"'+(i%5?'':' class="big"')+'/>'}g.innerHTML=t;
+  function big(n){return n>=1e6?(n/1e6).toFixed(n>=1e7?0:1).replace(/\.0$/,"")+"M":n>=1e3?Math.round(n/1e3)+"K":String(n)}
+  var st=[[talks.length,"guests"],[Math.floor(hours),"hours of talk"],[5,"seasons"]];
+  if(NM.siViews)st.push([big(NM.siViews)+"+","views"]);
+  st.push([0,"gotchas"]);
+  NM.$("#stats").innerHTML=st.map(function(s){return '<div><dt>'+s[1]+'</dt><dd>'+s[0]+'</dd></div>'}).join("");
+  /* the wall: every guest, drifting very slowly */
+  var ids=talks.map(function(v){return v.parts[0].yt}),cols=[[],[],[],[]];
+  ids.forEach(function(id,i){cols[i%4].push(id)});
+  NM.$("#wall").innerHTML=cols.map(function(c,ci){var im=c.concat(c).map(function(id){return '<span style="background-image:url(https://i.ytimg.com/vi/'+id+'/mqdefault.jpg)"></span>'}).join("");return '<div class="col" style="--d:'+(220+ci*45)+'s;--o:'+(ci%2?'-50%':'0%')+'">'+im+'</div>'}).join("");
 
   /* featured */
   var f=talks.filter(function(v){return v.t==="Prosenjit Chatterjee"})[0];
