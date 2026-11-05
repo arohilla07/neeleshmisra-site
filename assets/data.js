@@ -11,9 +11,11 @@ window.NM = {
     address: "Vishal Khand, Gomti Nagar, Lucknow, Uttar Pradesh 226010",
     enquiry: "https://41svr5.share-na2.hsforms.com/2yKttTuDqRIm1S34A2dU-Ng",
     workWithUs: "https://41svr5.share-na2.hsforms.com/2f6pZw1dbTRm4RXybywaM0w",
-    hero: "https://staticimg.publishstory.co/thumb/125379537.cms?imgsize=32688&width=1920&resizemode=4",
+    hero: "assets/img/nm-white-curtain-landscape.jpg",
     heroCredit: "",
-    portrait: "https://staticimg.publishstory.co/thumb/125379537.cms?imgsize=32688&width=1280&height=720&resizemode=4",
+    portrait: "assets/img/nm-portrait-bw-seema-chaubey.jpg",
+    portraitCredit: "Photo: Seema Chaubey",
+    studio: "assets/img/nm-recording-studio.jpg",
     whatsapp: "https://api.whatsapp.com/send?phone=916393700123",
     social: {
       YouTube: "https://www.youtube.com/@NeeleshMisra",
@@ -27,14 +29,14 @@ window.NM = {
 
   /* Film songs as lyricist (source: neeleshmisra.com/about-us). */
   filmSongs: [
-    { t: "Jaadu Hai Nasha Hai", h: "जादू है नशा है", film: "Jism", y: 2003 },
-    { t: "Chalo Tumko Lekar Chalein", h: "चलो तुमको लेकर चलें", film: "Jism", y: 2003 },
+    { t: "Jaadu Hai Nasha Hai", h: "जादू है नशा है", film: "Jism", y: 2003, yt: "gTSL0Rv0am4" },
+    { t: "Chalo Tumko Lekar Chalein", h: "चलो तुमको लेकर चलें", film: "Jism", y: 2003, yt: "ZnmSo_AgO1A" },
     { t: "Bepanah Pyaar Hai", h: "बेपनाह प्यार है", film: "Krishna Cottage", y: 2004 },
-    { t: "Maine Dil Se Kaha", h: "मैंने दिल से कहा", film: "Rog", y: 2005, music: "M.M. Kreem", singer: "K.K.", label: "Saregama" },
+    { t: "Maine Dil Se Kaha", h: "मैंने दिल से कहा", film: "Rog", y: 2005, music: "M.M. Kreem", singer: "K.K.", label: "Saregama", yt: "V1OXK49Dh78" },
     { t: "Khoobsoorat Hai Woh Itna", h: "ख़ूबसूरत है वो इतना", film: "Rog", y: 2005 },
     { t: "Guzar Na Jaaye", h: "गुज़र न जाए", film: "Rog", y: 2005 },
     { t: "Kya Mujhe Pyaar Hai", h: "क्या मुझे प्यार है", film: "Woh Lamhe", y: 2006 },
-    { t: "Lamha Lamha", h: "लम्हा लम्हा", film: "Gangster", y: 2006 },
+    { t: "Lamha Lamha", h: "लम्हा लम्हा", film: "Gangster", y: 2006, yt: "J0A9l2zTAjg" },
     { t: "Khwahishon Se", h: "ख़्वाहिशों से", film: "Holiday", y: 2006 },
     { t: "Tu Hai Bhatakta Jugnu Koi", h: "तू है भटकता जुगनू कोई", film: "Holiday", y: 2006 },
     { t: "Neele Neele Aasmaan Tale", h: "नीले नीले आसमाँ तले", film: "Holiday", y: 2006 },
@@ -42,36 +44,36 @@ window.NM = {
     { t: "Baalam Tera Nakhra", h: "बालम तेरा नखरा", film: "Big Brother", y: 2007 },
     { t: "Gulon Mein Rang Bhare", h: "गुलों में रंग भरे", film: "Sikandar", y: 2009, note: "A modern reading of Faiz Ahmed Faiz's poem." },
     { t: "I Am in Love", h: "आई ऍम इन लव", film: "Once Upon A Time in Mumbaai", y: 2010 },
-    { t: "Anjaana Anjaani Ki Kahani", h: "अंजाना अंजानी की कहानी", film: "Anjaana Anjaani", y: 2010 },
-    { t: "Abhi Kuch Dinon Se", h: "अभी कुछ दिनों से", film: "Dil Toh Baccha Hai Ji", y: 2011 },
-    { t: "Humko Pyaar Hua", h: "हमको प्यार हुआ", film: "Ready", y: 2011 },
-    { t: "I Love You", h: "आई लव यू", film: "Bodyguard", y: 2011 },
-    { t: "Dil Mera Muft Ka", h: "दिल मेरा मुफ़्त का", film: "Agent Vinod", y: 2012 },
-    { t: "Khudaaya", h: "ख़ुदाया", film: "Shanghai", y: 2012 },
-    { t: "Banjaara", h: "बंजारा", film: "Ek Tha Tiger", y: 2012, note: "He also co-wrote the film's screenplay with Kabir Khan." },
-    { t: "Kyon", h: "क्यों", film: "Barfi!", y: 2012 },
-    { t: "Dhichkyaaon Doom Doom", h: "ढिचक्याऊँ डूम डूम", film: "Chashme Baddoor", y: 2013 },
-    { t: "Ishq Mohallah", h: "इश्क़ मोहल्ला", film: "Chashme Baddoor", y: 2013 },
-    { t: "Aala Re Aala", h: "आला रे आला", film: "Shootout at Wadala", y: 2013 },
+    { t: "Anjaana Anjaani Ki Kahani", h: "अंजाना अंजानी की कहानी", film: "Anjaana Anjaani", y: 2010, yt: "RT84gEAXhFY" },
+    { t: "Abhi Kuch Dinon Se", h: "अभी कुछ दिनों से", film: "Dil Toh Baccha Hai Ji", y: 2011, yt: "fbdxYoFb64g" },
+    { t: "Humko Pyaar Hua", h: "हमको प्यार हुआ", film: "Ready", y: 2011, yt: "EB25MOJIHRQ" },
+    { t: "I Love You", h: "आई लव यू", film: "Bodyguard", y: 2011, yt: "0JLRExeOH-k" },
+    { t: "Dil Mera Muft Ka", h: "दिल मेरा मुफ़्त का", film: "Agent Vinod", y: 2012, yt: "UZCOnDuL6pM" },
+    { t: "Khudaaya", h: "ख़ुदाया", film: "Shanghai", y: 2012, yt: "RFfiHwvd7zM" },
+    { t: "Banjaara", h: "बंजारा", film: "Ek Tha Tiger", y: 2012, note: "He also co-wrote the film's screenplay with Kabir Khan.", yt: "7QF7z76ehyo" },
+    { t: "Kyon", h: "क्यों", film: "Barfi!", y: 2012, yt: "Rq7tyOcVgLQ" },
+    { t: "Dhichkyaaon Doom Doom", h: "ढिचक्याऊँ डूम डूम", film: "Chashme Baddoor", y: 2013, yt: "dXIo8ZMnCSI" },
+    { t: "Ishq Mohallah", h: "इश्क़ मोहल्ला", film: "Chashme Baddoor", y: 2013, yt: "2dC7tprrttA" },
+    { t: "Aala Re Aala", h: "आला रे आला", film: "Shootout at Wadala", y: 2013, yt: "tKBa64-w4XA" },
     { t: "Capuchino", h: "कैपुचीनो", film: "I, Me Aur Main", y: 2013 },
-    { t: "Zindagi (Reprise)", h: "ज़िंदगी", film: "Bajrangi Bhaijaan", y: 2015 },
-    { t: "Jhumritalaiyya", h: "झुमरीतलैया", film: "Jagga Jasoos", y: 2017, note: "Jagga Jasoos won the Mirchi Music Awards Listeners' Choice Album of the Year." },
-    { t: "Phire Faqeera", h: "फिरे फ़क़ीरा", film: "Pagglait", y: 2021 },
-    { t: "Thode Kam Ajnabi", h: "थोड़े कम अजनबी", film: "Pagglait", y: 2021 },
+    { t: "Zindagi (Reprise)", h: "ज़िंदगी", film: "Bajrangi Bhaijaan", y: 2015, yt: "ITyHqStTDeg" },
+    { t: "Jhumritalaiyya", h: "झुमरीतलैया", film: "Jagga Jasoos", y: 2017, note: "Jagga Jasoos won the Mirchi Music Awards Listeners' Choice Album of the Year.", yt: "OSbe_bq_vN4" },
+    { t: "Phire Faqeera", h: "फिरे फ़क़ीरा", film: "Pagglait", y: 2021, yt: "N--SB72jLFY" },
+    { t: "Thode Kam Ajnabi", h: "थोड़े कम अजनबी", film: "Pagglait", y: 2021, yt: "jTuMsX43Ubs" },
     { t: "Eeja", h: "ईजा", film: "", y: 2025 },
-    { t: "Mann Ye Mera", h: "मन ये मेरा", film: "Metro… In Dino", y: 2025 }
+    { t: "Mann Ye Mera", h: "मन ये मेरा", film: "Metro… In Dino", y: 2025, yt: "XjRFk1Qq2Nw" }
   ],
 
   /* His own songs on Slow Music (written and sung by him). */
   ownSongs: [
-    { t: "Zindagi 1.0", h: "ज़िंदगी 1.0", film: "Kood", y: 2026, note: "First track from Kood. Written, composed and sung by Neelesh Misra.", yt: "" },
-    { t: "Tum Kaho Chaand Choukor Kar Den", h: "तुम कहो चाँद चौकोर कर दें", y: 2025, note: "Slow Music's first music video, from his debut solo album as a singer.", yt: "" },
-    { t: "Dheeme Dheeme", h: "धीमे धीमे", y: 2025, yt: "" },
-    { t: "Bhar Aayin Aankhen Meri", h: "भर आईं आँखें मेरी", y: 2025, yt: "" },
-    { t: "Chamba Kitni Door", h: "चंबा कितनी दूर", y: 2025, yt: "" },
-    { t: "Din Doobe", h: "दिन डूबे", y: 2025, yt: "" },
-    { t: "Ehi Thaiyyan: A Bhojpuri Chaiti", h: "एहि ठइयाँ", y: 2025, yt: "" },
-    { t: "'Ka Kha Ga' Ki Cool Kahaani", h: "क ख ग की कूल कहानी", y: 2025, note: "His mother Nirmala Misra's folk song, conceptualised by Neelesh under The Slow Movement.", yt: "" }
+    { t: "Zindagi 1.0", h: "ज़िंदगी 1.0", film: "Kood", y: 2026, note: "First track from Kood. Written, composed and sung by Neelesh Misra.", yt: "dcHaYCB6sCQ" },
+    { t: "Tum Kaho Chaand Choukor Kar Den", h: "तुम कहो चाँद चौकोर कर दें", y: 2025, note: "Slow Music's first music video, from his debut solo album as a singer.", yt: "vfU_MLdEZfI" },
+    { t: "Dheeme Dheeme", h: "धीमे धीमे", y: 2025, yt: "amFyYWjMkzk" },
+    { t: "Bhar Aayin Aankhen Meri", h: "भर आईं आँखें मेरी", y: 2025, yt: "85Qv9okSV7Y" },
+    { t: "Chamba Kitni Door", h: "चंबा कितनी दूर", y: 2025, yt: "IibmVpaosNs" },
+    { t: "Din Doobe", h: "दिन डूबे", y: 2025, yt: "39yCh1KF7OU" },
+    { t: "Ehi Thaiyyan: A Bhojpuri Chaiti", h: "एहि ठइयाँ", y: 2025, yt: "nzh0BmIPZwQ" },
+    { t: "'Ka Kha Ga' Ki Cool Kahaani", h: "क ख ग की कूल कहानी", y: 2025, note: "His mother Nirmala Misra's folk song, conceptualised by Neelesh under The Slow Movement.", yt: "sz_PxMXk4FE" }
   ],
 
   kood: {
@@ -80,13 +82,13 @@ window.NM = {
     cast: "Neelesh Misra, Ketaki Kulkarni",
     producer: "Yamini Misra · Slow Motion Pictures",
     logline: "Two strangers meet on a bridge at the edge of a city. Both have come there to end their lives. Over one long day, they begin to see each other.",
-    film: "b6EJa74GnHM", trailer: "", teaser: "",
+    film: "b6EJa74GnHM", trailer: "gEdKsMZ83Ew", teaser: "LTTzrAAm0Kc", teaser2: "DMJ9RyhLW0w", showreel: "BEaSkBC6EQ8",
     banner: "https://demo19.publishstory.co/thumb/130004055.cms?imgsize=422424&width=1160&resizemode=3"
   },
 
   screenplays: [
-    { t: "Tiger Zinda Hai", y: "2017", type: "Feature", role: "Screenplay, with Ali Abbas Zafar", p: "The sequel to Ek Tha Tiger, directed by Ali Abbas Zafar." , q: "Tiger Zinda Hai official trailer" },
-    { t: "Ek Tha Tiger", y: "2012", type: "Feature", role: "Screenplay, with Kabir Khan", p: "Yash Raj Films' spy romance with Salman Khan and Katrina Kaif, directed by Kabir Khan. He also wrote the lyrics for its song Banjaara.", q: "Ek Tha Tiger official trailer" }
+    { t: "Tiger Zinda Hai", y: "2017", type: "Feature", role: "Screenplay, with Ali Abbas Zafar", p: "The sequel to Ek Tha Tiger, directed by Ali Abbas Zafar.", q: "Tiger Zinda Hai official trailer", yt: "ePO5M5DE01I" },
+    { t: "Ek Tha Tiger", y: "2012", type: "Feature", role: "Screenplay, with Kabir Khan", p: "Yash Raj Films' spy romance with Salman Khan and Katrina Kaif, directed by Kabir Khan. He also wrote the lyrics for its song Banjaara.", q: "Ek Tha Tiger official trailer", yt: "SmUl0l8qBXw" }
   ],
 
   radio: [
@@ -138,14 +140,16 @@ window.NM = {
   ],
 
   interviews: [
-    { t: "Ayushmann Khurrana", sub: "Punishment Room", d: "7:20", yt: "" },
-    { t: "Satinder Sartaaj", sub: "At The Slow Interview", d: "5:31", yt: "" },
-    { t: "Alakh Pandey", sub: "Physics Wallah", d: "2:00:54", yt: "" },
-    { t: "Divya Dutta", sub: "The story behind Chiraiya's biggest star", d: "", yt: "" },
-    { t: "Aditya Ghosh", sub: "A Slow Day with Neelesh Misra · Akasa Air", d: "1:54:44", yt: "" },
-    { t: "Looking Back", sub: "The best of the first three seasons", d: "2:01:00", yt: "" },
-    { t: "Manoj Bajpayee", sub: "Short", d: "", yt: "" },
-    { t: "Arbaaz Khan & Salim Khan", sub: "Tattoo", d: "", yt: "" }
+    { t: "Ayushmann Khurrana", sub: "Punishment Room", d: "7:20", yt: "9xriJ_sA45Y" },
+    { t: "Satinder Sartaaj", sub: "At The Slow Interview", d: "5:31", yt: "WeK7tm8Cgdk" },
+    { t: "Alakh Pandey", sub: "Physics Wallah", d: "2:00:54", yt: "FDXNsD51Mgo" },
+    { t: "Divya Dutta", sub: "The story behind Chiraiya's biggest star", d: "", yt: "RQ7Sc1c3Cow" },
+    { t: "Aditya Ghosh", sub: "A Slow Day with Neelesh Misra · Akasa Air", d: "1:54:44", yt: "vX-E3Dp-oCM" },
+    { t: "Looking Back", sub: "The best of the first three seasons", d: "2:01:00", yt: "hIqmMSY4qAE" },
+    { t: "Kumar Vishwas", sub: "Apne bheetar ki awaz suno", d: "", yt: "MkHkOGEogHs" },
+    { t: "Tigmanshu Dhulia", sub: "“Irrfan mera sabse achcha dost hai”", d: "", yt: "JJQfKXupxxk" },
+    { t: "Paresh Rawal", sub: "Part 1", d: "", yt: "56tLaVrPrQk" },
+    { t: "Paresh Rawal", sub: "Part 2", d: "", yt: "HCLoyWICuR0" }
   ],
 
   journalism: [
