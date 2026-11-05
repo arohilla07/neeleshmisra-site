@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!--head-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Mukta:wght@400;600&family=Tiro+Devanagari+Hindi&family=Courier+Prime&display=swap">
+<script>(function(){try{var t=localStorage.getItem("nm-theme");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t)}catch(e){}})();</script>
+<!--/head-->
+<title>Neelesh Misra · Live</title>
+<meta name="description" content="Neelesh Misra live: storytelling and music performances across India. Bring the show to your city, college or company.">
+<meta property="og:title" content="Neelesh Misra · Live on stage">
+<meta property="og:description" content="Stories told live, city to city.">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body class="s-live" data-page="live" data-root="../">
+<header id="ubar"></header>
+<main>
+  <section class="wrap stage">
+    <div>
+      <p class="label dot">Live shows</p>
+      <h1>The story,<br><em>live.</em></h1>
+      <p class="lede">The voice from the radio, on stage. Neelesh tells stories and sings, in cities across India, and the hall goes quiet the way a room does at 9 PM.</p>
+      <div class="acts"><a class="btn solid" id="book">Bring the show to your city</a><a class="btn" href="#formats">Formats</a></div>
+    </div>
+    <div class="spot" id="reel"></div>
+  </section>
+
+  <section class="wrap" id="formats">
+    <div class="formats">
+      <div class="f rv"><p class="label">For audiences</p><h3>Storytelling night</h3><p>Stories from Yaad Sheher, told live, with songs in between.</p></div>
+      <div class="f rv"><p class="label">For campuses</p><h3>In conversation</h3><p>On writing, slowing down, and building something of your own.</p></div>
+      <div class="f rv"><p class="label">For companies</p><h3>Keynote</h3><p>Conscious entrepreneurship and the Slow Movement, from Gaon Connection's founder.</p></div>
+    </div>
+  </section>
+
+  <section class="wrap dates" aria-label="Dates">
+    <h2 class="sec-title dot">Upcoming</h2>
+    <div class="date empty"><h3>New dates are announced on Instagram first.</h3><a class="btn" href="https://www.instagram.com/neeleshmisra/">Follow for dates</a></div>
+    <div class="date empty"><h3>Want a show in your city?</h3><a class="btn solid" id="book2">Send an enquiry</a></div>
+  </section>
+</main>
+<footer id="foot"></footer>
+<script src="../assets/data.js"></script>
+<script src="../assets/app.js"></script>
+<script>
+NM.page=function(){
+  NM.$("#reel").innerHTML=NM.video({yt:"",cap:"Connecting Cities and Hearts · The Neelesh Misra showreel",q:"Neelesh Misra live show showreel"});
+  ["#book","#book2"].forEach(function(s){NM.$(s).href=NM.person.enquiry});
+};
+</script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!--head-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Mukta:wght@400;600&family=Tiro+Devanagari+Hindi&family=Courier+Prime&display=swap">
+<script>(function(){try{var t=localStorage.getItem("nm-theme");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t)}catch(e){}})();</script>
+<!--/head-->
+<title>Neelesh Misra · Author</title>
+<meta name="description" content="Books by Neelesh Misra: Main Aksar Sochta Hoon, Neelesh Misra Ka Yaad Sheher, 173 Hours in Captivity, and more.">
+<meta property="og:title" content="Neelesh Misra · Books">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body class="s-books" data-page="books" data-root="../">
+<header id="ubar"></header>
+<main>
+  <section class="wrap mast">
+    <p class="label kicker dot">Author</p>
+    <h1>The Shelf</h1>
+    <p class="lede">Poems, stories from Yaad Sheher, a hijacking told hour by hour, and his father's postcards from the village. Pick a book.</p>
+  </section>
+  <section class="wrap">
+    <div class="shelf" id="shelf" role="list"></div>
+    <div class="bookdetail">
+      <div id="book" aria-live="polite"></div>
+      <div class="arts"><p class="label dot">Writing elsewhere</p><div id="arts"></div></div>
+    </div>
+  </section>
+</main>
+<footer id="foot"></footer>
+<script src="../assets/data.js"></script>
+<script src="../assets/app.js"></script>
+<script>
+NM.page=function(){
+  var E=NM.esc, B=NM.books;
+  function cover(b,i){var title=b.t;return '<button class="cover" role="listitem" data-i="'+i+'" style="background:'+b.c1+(b.img?' url('+b.img+') center/cover':'')+';color:'+b.c2+'">'+(b.img?'':'<span class="ce">'+E(title)+'</span><small>'+E(b.by||"Neelesh Misra")+'</small>')+'</button>'}
+  NM.$("#shelf").innerHTML=B.map(cover).join("");
+  function show(i){var b=B[i];
+    NM.$$(".cover").forEach(function(c){c.setAttribute("aria-current",c.getAttribute("data-i")==i)});
+    var rows=[["Author",b.by||"Neelesh Misra"],["Publisher",b.pub],["Category",b.cat],["Year",b.y]].filter(function(r){return r[1]});
+    NM.$("#book").innerHTML='<h2>'+E(b.t)+'</h2><dl>'+rows.map(function(r){return '<dt>'+r[0]+'</dt><dd>'+E(r[1])+'</dd>'}).join("")+'</dl><p class="blurb">'+E(b.blurb)+'</p><p style="margin-top:1.6rem"><a class="btn solid" href="'+(b.buy||"https://www.amazon.in/s?k="+encodeURIComponent(b.t+" "+(b.by||"Neelesh Misra")))+'" target="_blank" rel="noopener">Buy the book</a></p>';
+  }
+  document.addEventListener("click",function(e){var c=e.target.closest(".cover");if(c)show(+c.getAttribute("data-i"))});
+  show(0);
+  NM.$("#arts").innerHTML=NM.articles.map(function(a){return '<div class="art"><p class="label">'+(a.d?E(a.d):"neeleshmisra.com")+'</p><h3>'+E(a.t)+'</h3><a class="lnk" href="'+(a.u||"https://neeleshmisra.com/read")+'">Read '+NM.icon.arrow+'</a></div>'}).join("");
+};
+</script>
+</body>
+</html>

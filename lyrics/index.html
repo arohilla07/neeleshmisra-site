@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!--head-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Mukta:wght@400;600&family=Tiro+Devanagari+Hindi&family=Courier+Prime&display=swap">
+<script>(function(){try{var t=localStorage.getItem("nm-theme");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t)}catch(e){}})();</script>
+<!--/head-->
+<title>Neelesh Misra · Lyricist</title>
+<meta name="description" content="The songbook of Neelesh Misra: 32 Hindi film songs from Jism (2003) to Metro… In Dino (2025), and his own songs on Slow Music.">
+<meta property="og:title" content="Neelesh Misra · The Songbook">
+<meta property="og:description" content="Jaadu Hai Nasha Hai, Maine Dil Se Kaha, Banjaara, Kyon, Phire Faqeera and more.">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body class="s-lyrics" data-page="lyrics" data-root="../">
+<header id="ubar"></header>
+<main>
+  <section class="wrap mast">
+    <p class="label kicker dot">Lyricist</p>
+    <h1>The Songbook</h1>
+    <p class="lede">Since Jism in 2003, Neelesh Misra has written the words to some of Hindi cinema's most loved songs. Open any song to read and listen.</p>
+    <div class="count"><div><b id="c-songs">32</b><span class="label">Film songs</span></div><div><b id="c-films">24</b><span class="label">Films</span></div><div><b>2003</b><span class="label">First song</span></div></div>
+  </section>
+
+  <section class="wrap" aria-label="Songs">
+    <div class="tabs" role="toolbar" aria-label="Filter songs">
+      <button aria-pressed="true" data-f="all">All</button>
+      <button aria-pressed="false" data-f="2000">2000s</button>
+      <button aria-pressed="false" data-f="2010">2010s</button>
+      <button aria-pressed="false" data-f="2020">2020s</button>
+      <button aria-pressed="false" data-f="own">In his own voice</button>
+      <input class="search" type="search" placeholder="Search a song or film" aria-label="Search songs">
+    </div>
+    <div class="songbook">
+      <ul class="songlist" id="list" aria-label="Song list"></ul>
+      <article class="sheet" id="sheet" aria-live="polite"></article>
+    </div>
+  </section>
+
+  <section class="ownvoice" aria-label="In his own voice">
+    <div class="wrap">
+      <p class="label">Slow Music</p>
+      <h2>In his own voice</h2>
+      <p style="max-width:52ch;margin-top:1rem;font-family:var(--f-disp);font-size:1.2rem">Songs Neelesh writes, composes and sings himself, released on his own label.</p>
+      <div class="grid" id="own"></div>
+      <p style="margin-top:2rem"><a class="btn" href="https://www.youtube.com/@slowmusicbyneeleshmisra">Slow Music on YouTube</a></p>
+    </div>
+  </section>
+</main>
+<footer id="foot"></footer>
+<script src="../assets/data.js"></script>
+<script src="../assets/app.js"></script>
+<script>
+NM.page=function(){
+  var E=NM.esc, film=NM.filmSongs.map(function(s,i){s.k="f"+i;return s}), own=NM.ownSongs.map(function(s,i){s.k="o"+i;s.own=1;return s});
+  var all=film.concat(own), cur=null, lang="en", filt="all", q="";
+  NM.$("#c-songs").textContent=film.length;
+  NM.$("#c-films").textContent=film.reduce(function(a,s){if(s.film&&a.indexOf(s.film)<0)a.push(s.film);return a},[]).length;
+
+  function visible(){return all.filter(function(s){
+    if(filt==="own"&&!s.own)return false;
+    if(filt!=="all"&&filt!=="own"&&(s.own||Math.floor(s.y/10)*10!==+filt))return false;
+    if(q&&(s.t+" "+(s.film||"")).toLowerCase().indexOf(q)<0)return false;
+    return true;})}
+  function list(){
+    var v=visible(), html="", y=null;
+    v.slice().sort(function(a,b){return a.own-b.own||a.y-b.y}).forEach(function(s){
+      var g=s.own?"Slow Music":String(s.y);
+      if(g!==y){html+='<li class="yr">'+g+'</li>';y=g}
+      html+='<li><button data-k="'+s.k+'"'+(cur&&cur.k===s.k?' aria-current="true"':'')+'><b>'+E(s.t)+'</b><small>'+E(s.film||"")+'</small></button></li>';
+    });
+    NM.$("#list").innerHTML=html||'<li class="muted" style="padding:1rem 0">No song matches that.</li>';
+  }
+  function sheet(s){
+    cur=s;
+    var meta=[["Film",s.film],["Year",s.y],["Music",s.music],["Singer",s.singer],["Label",s.label]].filter(function(r){return r[1]});
+    var q=s.t+" "+(s.film||"")+(s.own?" Neelesh Misra":" song");
+    var body=s.lines?'<p class="lyr">'+E(s.lines)+'</p>':'';
+    NM.$("#sheet").innerHTML=
+      
+      '<p class="label film">'+(s.own?"Slow Music":"From the film")+(s.film?" · "+E(s.film):"")+'</p>'+
+      '<h2>'+E(s.t)+'</h2>'+
+      '<dl>'+meta.map(function(r){return '<dt>'+r[0]+'</dt><dd>'+E(r[1])+'</dd>'}).join("")+'<dt>Lyrics</dt><dd>Neelesh Misra</dd></dl>'+
+      body+
+      '<p class="note">'+(s.note?E(s.note)+" ":"")+(s.own?'Full lyrics coming soon.':(s.lines?'':'Opening lines coming soon.'))+'</p>'+
+      NM.video({yt:s.yt,cap:"Listen · "+s.t,q:q});
+    list();
+  }
+  document.addEventListener("click",function(e){
+    var b=e.target.closest(".songlist button"); if(b){sheet(all.filter(function(s){return s.k===b.getAttribute("data-k")})[0]); if(innerWidth<900)NM.$("#sheet").scrollIntoView({behavior:"smooth"}); history.replaceState(null,"","#"+b.getAttribute("data-k")); return}
+    var l=e.target.closest(".langsw button"); if(l){lang=l.getAttribute("data-l");sheet(cur);return}
+    var f=e.target.closest(".tabs button"); if(f){filt=f.getAttribute("data-f");NM.$$(".tabs button").forEach(function(x){x.setAttribute("aria-pressed",x===f)});list();return}
+  });
+  NM.$(".search").addEventListener("input",function(e){q=e.target.value.trim().toLowerCase();list()});
+  var start=location.hash.slice(1); sheet(all.filter(function(s){return s.k===start})[0]||film[0]);
+  NM.$("#own").innerHTML=own.slice(0,8).map(function(s){return '<div class="card">'+NM.video({yt:s.yt,cap:s.t,q:s.t+" Neelesh Misra Slow Music"})+'<h3>'+E(s.t)+'</h3>'+(s.note?'<p>'+E(s.note)+'</p>':'')+'</div>'}).join("");
+};
+</script>
+</body>
+</html>

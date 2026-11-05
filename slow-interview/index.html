@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!--head-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Mukta:wght@400;600&family=Tiro+Devanagari+Hindi&family=Courier+Prime&display=swap">
+<script>(function(){try{var t=localStorage.getItem("nm-theme");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t)}catch(e){}})();</script>
+<!--/head-->
+<title>The Slow Interview with Neelesh Misra</title>
+<meta name="description" content="Long, unhurried conversations with actors, musicians, founders and thinkers. Hosted by Neelesh Misra.">
+<meta property="og:title" content="The Slow Interview with Neelesh Misra">
+<meta property="og:description" content="Ayushmann Khurrana, Satinder Sartaaj, Alakh Pandey, Divya Dutta and more.">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body class="s-si" data-page="slow-interview" data-root="../">
+<header id="ubar"></header>
+<main>
+  <section class="wrap mast">
+    <p class="label kicker dot">Host · since 2018</p>
+    <h1>The Slow<br><i>Interview</i></h1>
+    <p class="lede">No rush, no clock, no gotcha. Neelesh sits down with people who have lived interesting lives and lets them talk for as long as it takes.</p>
+  </section>
+  <section class="wrap slowgrid" id="grid" aria-label="Episodes"></section>
+  <section class="wrap" style="padding-bottom:5rem"><a class="btn" href="https://www.youtube.com/@NeeleshMisra">Every episode on YouTube</a></section>
+</main>
+<footer id="foot"></footer>
+<script src="../assets/data.js"></script>
+<script src="../assets/app.js"></script>
+<script>
+NM.page=function(){
+  var E=NM.esc;
+  NM.$("#grid").innerHTML=NM.interviews.map(function(v){return '<div class="card rv">'+NM.video({yt:v.yt,cap:v.d?v.d:"",q:v.t+" The Slow Interview Neelesh Misra",bg:v.img})+'<h3>'+E(v.t)+'</h3><p>'+E(v.sub)+'</p></div>'}).join("");
+};
+</script>
+</body>
+</html>

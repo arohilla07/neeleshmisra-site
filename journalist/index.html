@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!--head-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Mukta:wght@400;600&family=Tiro+Devanagari+Hindi&family=Courier+Prime&display=swap">
+<script>(function(){try{var t=localStorage.getItem("nm-theme");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t)}catch(e){}})();</script>
+<!--/head-->
+<title>Neelesh Misra · Journalist</title>
+<meta name="description" content="Neelesh Misra's years as a reporter: India Abroad, Associated Press, Hindustan Times. Kargil, IC-814, the Odisha cyclone, the 2004 tsunami.">
+<meta property="og:title" content="Neelesh Misra · The Reporter's Years">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body class="s-journo" data-page="journalist" data-root="../">
+<header id="ubar"></header>
+<main>
+  <section class="wrap mast">
+    <p class="label kicker">Journalist</p>
+    <h1>The Reporter's Years</h1>
+    <p class="lede">Before the radio and the songs, he was a reporter, sent wherever the story was hardest to reach.</p>
+  </section>
+  <div class="wrap"><div class="dateline"><span>Lucknow · New Delhi · New York</span><span>1995 onward</span></div></div>
+  <section class="wrap tl" id="tl" aria-label="Timeline"></section>
+  <section class="awards" aria-label="Awards"><div class="wrap"><h2 class="sec-title dot">Awards</h2><ul id="aw"></ul></div></section>
+</main>
+<footer id="foot"></footer>
+<script src="../assets/data.js"></script>
+<script src="../assets/app.js"></script>
+<script>
+NM.page=function(){
+  var E=NM.esc;
+  NM.$("#tl").innerHTML=NM.journalism.map(function(j){return '<div class="it rv">'+(j.y?'<div class="y">'+E(j.y)+'</div>':'')+'<h3>'+E(j.t)+'</h3>'+(j.b?'<p>'+E(j.b)+'</p>':'')+'</div>'}).join("");
+  NM.$("#aw").innerHTML=NM.awards.map(function(a){return '<li>'+E(a)+'</li>'}).join("");
+};
+</script>
+</body>
+</html>

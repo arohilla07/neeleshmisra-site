@@ -11,6 +11,7 @@ window.NM = {
     address: "Vishal Khand, Gomti Nagar, Lucknow, Uttar Pradesh 226010",
     enquiry: "https://41svr5.share-na2.hsforms.com/2yKttTuDqRIm1S34A2dU-Ng",
     workWithUs: "https://41svr5.share-na2.hsforms.com/2f6pZw1dbTRm4RXybywaM0w",
+    portrait: "https://staticimg.publishstory.co/thumb/125379537.cms?imgsize=32688&width=1280&height=720&resizemode=4",
     whatsapp: "https://api.whatsapp.com/send?phone=916393700123",
     social: {
       YouTube: "https://www.youtube.com/@NeeleshMisra",
@@ -36,6 +37,7 @@ window.NM = {
     { t: "Tu Hai Bhatakta Jugnu Koi", h: "तू है भटकता जुगनू कोई", film: "Holiday", y: 2006 },
     { t: "Neele Neele Aasmaan Tale", h: "नीले नीले आसमाँ तले", film: "Holiday", y: 2006 },
     { t: "Bolo Na Tum Zara", h: "बोलो ना तुम ज़रा", film: "Fight Club: Members Only", y: 2006 },
+    { t: "Baalam Tera Nakhra", h: "बालम तेरा नखरा", film: "Big Brother", y: 2007 },
     { t: "Gulon Mein Rang Bhare", h: "गुलों में रंग भरे", film: "Sikandar", y: 2009, note: "A modern reading of Faiz Ahmed Faiz's poem." },
     { t: "I Am in Love", h: "आई ऍम इन लव", film: "Once Upon A Time in Mumbaai", y: 2010 },
     { t: "Anjaana Anjaani Ki Kahani", h: "अंजाना अंजानी की कहानी", film: "Anjaana Anjaani", y: 2010 },
@@ -44,14 +46,14 @@ window.NM = {
     { t: "I Love You", h: "आई लव यू", film: "Bodyguard", y: 2011 },
     { t: "Dil Mera Muft Ka", h: "दिल मेरा मुफ़्त का", film: "Agent Vinod", y: 2012 },
     { t: "Khudaaya", h: "ख़ुदाया", film: "Shanghai", y: 2012 },
-    { t: "Banjaara", h: "बंजारा", film: "Ek Tha Tiger", y: 2012 },
+    { t: "Banjaara", h: "बंजारा", film: "Ek Tha Tiger", y: 2012, note: "He also co-wrote the film's screenplay with Kabir Khan." },
     { t: "Kyon", h: "क्यों", film: "Barfi!", y: 2012 },
     { t: "Dhichkyaaon Doom Doom", h: "ढिचक्याऊँ डूम डूम", film: "Chashme Baddoor", y: 2013 },
     { t: "Ishq Mohallah", h: "इश्क़ मोहल्ला", film: "Chashme Baddoor", y: 2013 },
     { t: "Aala Re Aala", h: "आला रे आला", film: "Shootout at Wadala", y: 2013 },
     { t: "Capuchino", h: "कैपुचीनो", film: "I, Me Aur Main", y: 2013 },
     { t: "Zindagi (Reprise)", h: "ज़िंदगी", film: "Bajrangi Bhaijaan", y: 2015 },
-    { t: "Jhumritalaiyya", h: "झुमरीतलैया", film: "Jagga Jasoos", y: 2017 },
+    { t: "Jhumritalaiyya", h: "झुमरीतलैया", film: "Jagga Jasoos", y: 2017, note: "Jagga Jasoos won the Mirchi Music Awards Listeners' Choice Album of the Year." },
     { t: "Phire Faqeera", h: "फिरे फ़क़ीरा", film: "Pagglait", y: 2021 },
     { t: "Thode Kam Ajnabi", h: "थोड़े कम अजनबी", film: "Pagglait", y: 2021 },
     { t: "Eeja", h: "ईजा", film: "", y: 2025 },
@@ -76,9 +78,14 @@ window.NM = {
     cast: "Neelesh Misra, Ketaki Kulkarni",
     producer: "Yamini Misra · Slow Motion Pictures",
     logline: "Two strangers meet on a bridge at the edge of a city. Both have come there to end their lives. Over one long day, they begin to see each other.",
-    film: "", trailer: "", teaser: "",
-    banner: "https://staticimg.publishstory.co/thumb/125381020.cms?imgsize=1429411&width=1280&height=720&resizemode=4"
+    film: "b6EJa74GnHM", trailer: "", teaser: "",
+    banner: "https://demo19.publishstory.co/thumb/130004055.cms?imgsize=422424&width=1160&resizemode=3"
   },
+
+  screenplays: [
+    { t: "Tiger Zinda Hai", y: "2017", type: "Feature", role: "Screenplay, with Ali Abbas Zafar", p: "The sequel to Ek Tha Tiger, directed by Ali Abbas Zafar." , q: "Tiger Zinda Hai official trailer" },
+    { t: "Ek Tha Tiger", y: "2012", type: "Feature", role: "Screenplay, with Kabir Khan", p: "Yash Raj Films' spy romance with Salman Khan and Katrina Kaif, directed by Kabir Khan. He also wrote the lyrics for its song Banjaara.", q: "Ek Tha Tiger official trailer" }
+  ],
 
   radio: [
     { t: "Yaadon Ka Idiot Box", h: "यादों का इडियट बॉक्स", where: "92.7 BIG FM, then digital", y: "2011 –", body: "The show that made a country switch on the radio at night. Stories set in Yaad Sheher, a small town of memory, told in Neelesh's voice and written by a 'mandli' of writers he trained. Now in its seventh season." },
@@ -107,19 +114,25 @@ window.NM = {
   ],
 
   books: [
-    { t: "Main Aksar Sochta Hoon", h: "मैं अक्सर सोचता हूँ", pub: "Slow Imprint", cat: "Poetry", y: 2025, c1: "#d41f26", c2: "#f6e7d8", blurb: "His first book of poems. Dainik Jagran Hindi Bestseller 2025 (poetry) and the Dainik Jagran Kriti Samman." },
-    { t: "Neelesh Misra Ka Yaad Sheher, Vol. 2", h: "नीलेश मिसरा का याद शहर", pub: "", cat: "Stories", y: null, c1: "#1f3a5f", c2: "#e8eef5", blurb: "More stories from the town of memory, the world of Yaadon Ka Idiot Box." },
-    { t: "Neelesh Misra Ka Yaad Sheher, Vol. 1", h: "नीलेश मिसरा का याद शहर", pub: "", cat: "Stories", y: null, c1: "#2f5d50", c2: "#e6f0ea", blurb: "The first collection of Yaadon Ka Idiot Box stories, written for the page." },
+    { t: "Main Aksar Sochta Hoon", h: "मैं अक्सर सोचता हूँ", pub: "Slow Imprint, with Gaon Connection and Ekada", cat: "Poetry", y: 2025, img: "https://staticimg.publishstory.co/thumb/131386626.cms?imgsize=191214&width=600&resizemode=8", buy: "https://www.amazon.in/Main-Aksar-Sochta-Hoon-Hindi/dp/B0G2YHJYTL", c1: "#d41f26", c2: "#f6e7d8", blurb: "His first book of poems. Dainik Jagran Hindi Bestseller 2025 (poetry) and the Dainik Jagran Kriti Samman." },
+    { t: "Neelesh Misra Ka Yaad Sheher, Vol. 2", h: "नीलेश मिसरा का याद शहर", pub: "Westland", cat: "Stories", y: null, c1: "#1f3a5f", c2: "#e8eef5", blurb: "More stories from the town of memory, the world of Yaadon Ka Idiot Box." },
+    { t: "Neelesh Misra Ka Yaad Sheher, Vol. 1", h: "नीलेश मिसरा का याद शहर", pub: "Westland", cat: "Stories", y: null, c1: "#2f5d50", c2: "#e6f0ea", blurb: "The first collection of Yaadon Ka Idiot Box stories, written for the page." },
     { t: "Gaon Se Bees Postcards", h: "गाँव से बीस पोस्टकार्ड", pub: "Slow Imprint", cat: "Letters", y: null, by: "Dr. Shiv Balak Misra", c1: "#8a5a2b", c2: "#f3ead9", blurb: "Twenty postcards from the village by his father, Dr. Shiv Balak Misra. Published by Neelesh's Slow Imprint." },
-    { t: "173 Hours in Captivity", h: "", pub: "HarperCollins", cat: "Non-fiction", y: 2000, c1: "#161616", c2: "#e9e9e6", blurb: "The first full account of the IC-814 hijacking, written while he was a young reporter." }
+    { t: "The Absent State", pub: "Hachette", cat: "Non-fiction", y: 2010, by: "Neelesh Misra & Rahul Pandita", c1: "#3b3b38", c2: "#f0efe9", blurb: "Co-written with Rahul Pandita: India's insurgencies and the places the state forgot." },
+    { t: "Inspired India: Ideas to Transform a Nation", pub: "HarperCollins", cat: "Non-fiction", y: 2010, c1: "#c4561d", c2: "#fdf0e4", blurb: "Ideas for a better India. Foreword by Dr. A. P. J. Abdul Kalam." },
+    { t: "India Yatra", pub: "HarperCollins", cat: "Non-fiction", y: 2009, c1: "#0f6b6b", c2: "#e4f4f2", blurb: "With a foreword by Nandan Nilekani." },
+    { t: "Once Upon a Timezone", pub: "HarperCollins", cat: "Fiction", y: 2006, c1: "#4b2e83", c2: "#efe9fb", blurb: "Published by HarperCollins." },
+    { t: "End of the Line", pub: "Penguin", cat: "Non-fiction", y: 2001, c1: "#7a1f1f", c2: "#f7e6e6", blurb: "The story of the killing of the royal family in Nepal." },
+    { t: "173 Hours in Captivity", pub: "HarperCollins", cat: "Non-fiction", y: 2000, c1: "#161616", c2: "#e9e9e6", blurb: "The first full account of the IC-814 hijacking, written while he was a young reporter." }
   ],
 
   articles: [
-    { t: "Neelesh Misra: The Lyricist Behind India's Most Beloved Songs", by: "Anshika Dixit" },
-    { t: "Storytelling in the Age of AI: What Neelesh Misra Thinks", by: "" },
-    { t: "The Joint Family Was India's Original Wellness System, and We Dismantled It", by: "", d: "8 Jun 2026" },
-    { t: "The Essence of Slow Living: Memories of Nani Ka Ghar", by: "", d: "5 May 2026" },
-    { t: "Neelesh Misra's Kood: What the Makers Have to Say", by: "" }
+    { t: "Neelesh Misra: The Lyricist Behind India's Most Beloved Songs", u: "https://neeleshmisra.com/read/neelesh-misra-the-lyricist-behind-indias-most-beloved-songs/articleshow/131483303.html" },
+    { t: "Main Aksar Sochta Hoon wins the Dainik Jagran Kriti Samman", d: "30 May 2026", u: "https://neeleshmisra.com/read/whats-new/neelesh-misras-main-aksar-sochta-hoon-wins-dainik-jagran-kriti-samman-for-hindi-bestseller-2025/articleshow/131386626.html" },
+    { t: "Storytelling in the Age of AI: What Neelesh Misra Thinks", u: "https://neeleshmisra.com/read/storytelling-in-the-age-of-aiwhat-neelesh-misra-thinks/articleshow/130291789.html" },
+    { t: "The Joint Family Was India's Original Wellness System", d: "8 Jun 2026", u: "https://neeleshmisra.com/read/the-joint-family-was-indias-original-wellness-system-and-we-dismantled-it/articleshow/131585351.html" },
+    { t: "Before Slow Living Had a Name, There Was Nani Ka Ghar", d: "5 May 2026", u: "https://neeleshmisra.com/read/before-slow-living-had-a-name-there-was-nani-ka-ghar-and-summer-vacations/articleshow/130817907.html" },
+    { t: "Neelesh Misra's Kood: What the Makers Have to Say", u: "https://neeleshmisra.com/read/neelesh-misras-kood-what-the-makers-have-to-say/articleshow/130169870.html" }
   ],
 
   interviews: [
@@ -146,8 +159,9 @@ window.NM = {
   ],
 
   awards: [
-    "Ramnath Goenka Award for Excellence in Journalism",
-    "Karpoor Chandra Kulish Memorial Award",
+    "Ramnath Goenka Excellence in Journalism Award, 2007 and 2012",
+    "K. C. Kulish Memorial Award for journalism, 2009",
+    "Mirchi Music Awards: Listeners' Choice Album of the Year, Jagga Jasoos (2017)",
     "Dainik Jagran Kriti Samman, for Main Aksar Sochta Hoon (Hindi Bestseller 2025, poetry)"
   ]
 };

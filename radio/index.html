@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!--head-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Mukta:wght@400;600&family=Tiro+Devanagari+Hindi&family=Courier+Prime&display=swap">
+<script>(function(){try{var t=localStorage.getItem("nm-theme");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t)}catch(e){}})();</script>
+<!--/head-->
+<title>Neelesh Misra · Radio</title>
+<meta name="description" content="Yaadon Ka Idiot Box, The Neelesh Misra Show, Kahaani Express: the stories that made India tune in at 9 PM.">
+<meta property="og:title" content="Neelesh Misra · Radio">
+<meta property="og:description" content="Yaadon Ka Idiot Box and the 9 PM ritual.">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body class="s-radio" data-page="radio" data-root="../">
+<header id="ubar"></header>
+<main>
+  <section class="wrap dial">
+    <p class="label dot">Radio storyteller</p>
+    <div class="clock" aria-hidden="true">9:00<small>PM</small></div>
+    <h1>Tune in to Yaad Sheher</h1>
+    <p class="lede">For more than a decade, millions of Indians switched on the radio at night to hear one voice tell them a story. This is where those stories live.</p>
+    <div class="band" aria-hidden="true"><div class="freq"><span>88</span><span>92.7</span><span>98.3</span><span>104</span><span>108</span></div><div class="needle" id="needle"></div></div>
+  </section>
+  <section class="wrap">
+    <div class="stations" id="stations" role="group" aria-label="Shows"></div>
+  </section>
+  <section class="wrap eps" aria-label="Episodes">
+    <h2 class="sec-title dot">Recent stories</h2>
+    <div id="eps"></div>
+    <p style="margin-top:2rem"><a class="btn" href="https://www.youtube.com/@NeeleshMisra">All stories on YouTube</a></p>
+  </section>
+</main>
+<footer id="foot"></footer>
+<script src="../assets/data.js"></script>
+<script src="../assets/app.js"></script>
+<script>
+NM.page=function(){
+  var E=NM.esc,I=NM.icon,pos=[30,22,62,45];
+  NM.$("#stations").innerHTML=NM.radio.map(function(r,i){return '<button class="station" data-i="'+i+'" aria-pressed="'+(i===0)+'"><span class="label">'+E(r.where)+(r.y?" · "+E(r.y):"")+'</span><h3>'+E(r.t)+'</h3><p>'+E(r.body)+'</p></button>'}).join("");
+  NM.$("#eps").innerHTML=NM.episodes.map(function(e){return '<a class="ep" href="'+NM.watchHref(e.yt,e.t+" "+e.by+" Neelesh Misra")+'" target="_blank" rel="noopener"><span class="pb">'+I.play+'</span><span><h3>'+E(e.t)+'</h3><small>'+(e.by?"Written by "+E(e.by)+" · ":"")+E(e.show)+'</small></span><span class="d">'+E(e.d)+'</span></a>'}).join("");
+  document.addEventListener("click",function(e){var b=e.target.closest(".station");if(!b)return;NM.$$(".station").forEach(function(x){x.setAttribute("aria-pressed",x===b)});NM.$("#needle").style.left=pos[+b.getAttribute("data-i")]+"%"});
+};
+</script>
+</body>
+</html>

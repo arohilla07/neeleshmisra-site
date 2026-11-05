@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!--head-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Mukta:wght@400;600&family=Tiro+Devanagari+Hindi&family=Courier+Prime&display=swap">
+<script>(function(){try{var t=localStorage.getItem("nm-theme");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t)}catch(e){}})();</script>
+<!--/head-->
+<title>Neelesh Misra · Screenwriter &amp; Storyteller</title>
+<meta name="description" content="Screenplays, radio scripts and stories written by Neelesh Misra: Kood, Yaadon Ka Idiot Box, Yaad Sheher, Kahaani Express.">
+<meta property="og:title" content="Neelesh Misra · The Writer's Room">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body class="s-writer" data-page="writer" data-root="../">
+<header id="ubar"></header>
+<main>
+  <section class="wrap mast">
+    <p class="label kicker dot">Screenwriter</p>
+    <h1>FADE IN:<br>The Writer's Room</h1>
+    <p class="lede">A screenplay, a radio script and a short story all start the same way for him: a small town, a person who wants something, and a voice that tells it slowly.</p>
+  </section>
+  <p class="quote-line mono">INT. YAAD SHEHER — NIGHT — 9 PM</p>
+  <section class="wrap acc" id="acc" aria-label="Written work"></section>
+</main>
+<footer id="foot"></footer>
+<script src="../assets/data.js"></script>
+<script src="../assets/app.js"></script>
+<script>
+NM.page=function(){
+  var k=NM.kood, I=NM.icon;
+  var rows=NM.screenplays.map(function(r){return {t:r.t,type:r.type,y:r.y,role:r.role,p:r.p,v:NM.video({yt:r.yt,cap:r.t+" · Trailer",q:r.q}),go:["https://www.youtube.com/results?search_query="+encodeURIComponent(r.q),"Watch the trailer"]}});
+  var extra=[    {t:"Kood",type:"Mini feature",y:"2026",role:"Writer, director",p:k.logline,v:NM.video({yt:k.film,cap:"Watch Kood",q:"Kood official trailer Neelesh Misra",bg:k.banner}),go:["../films/","The film"]},
+    {t:"Yaadon Ka Idiot Box",type:"Radio series",y:"2011 –",role:"Creator, writer, narrator",p:"He invented Yaad Sheher, a small town of memory, and a team of writers (the 'mandli') to fill it with stories. The show ran on 92.7 BIG FM and now continues online, in its seventh season.",v:NM.video({cap:"Yaadon Ka Idiot Box",q:"Yaadon Ka Idiot Box Neelesh Misra"}),go:["../radio/","Listen"]},
+    {t:"Zindagi 1.0",type:"Song",y:"2026",role:"Words, music, voice",p:"The first track from Kood: written, composed and sung by Neelesh Misra.",v:NM.video({yt:NM.ownSongs[0].yt,cap:"Zindagi 1.0",q:"Zindagi 1.0 Neelesh Misra"}),go:["../lyrics/#o0","The song"]},
+    {t:"Kahaani Express",type:"Story platform",y:"2018 –",role:"Curator, narrator",p:"A home for many writers. He picks the stories, shapes them for the ear, and tells them.",v:NM.video({cap:"Kahaani Express",q:"Kahaani Express Neelesh Misra"}),go:["../radio/","Listen"]},
+    {t:"The Neelesh Misra Show",type:"Radio show",y:"2016",role:"Writer, host",p:"A nightly hour of stories and songs on Red FM.",v:NM.video({cap:"The Neelesh Misra Show",q:"The Neelesh Misra Show Red FM"}),go:["../radio/","More radio"]},
+    {t:"Film songs",type:"Lyrics",y:"2003 –",role:"Lyricist",p:"More than thirty songs for Hindi films, from Jism and Rog to Ek Tha Tiger, Barfi! and Pagglait.",v:NM.video({cap:"Jaadu Hai Nasha Hai",q:"Jaadu Hai Nasha Hai Jism song"}),go:["../lyrics/","The songbook"]}];
+  rows=[extra[0]].concat(rows,extra.slice(1));
+  NM.$("#acc").innerHTML=rows.map(function(r,i){return '<details'+(i===0?' open':'')+'><summary><h3>'+r.t+'</h3><span>'+r.type+'</span><span>'+r.y+'</span><span>'+r.role+'</span><span class="pm">+</span></summary><div class="body"><div><p>'+r.p+'</p><a class="lnk" href="'+r.go[0]+'">'+r.go[1]+' '+I.arrow+'</a></div>'+r.v+'</div></details>'}).join("");
+};
+</script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!--head-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Mukta:wght@400;600&family=Tiro+Devanagari+Hindi&family=Courier+Prime&display=swap">
+<script>(function(){try{var t=localStorage.getItem("nm-theme");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t)}catch(e){}})();</script>
+<!--/head-->
+<title>Neelesh Misra · Storyteller</title>
+<meta name="description" content="Neelesh Misra: lyricist, filmmaker, radio storyteller, author, journalist. Founder of Gaon Connection and The Slow Movement.">
+<meta property="og:title" content="Neelesh Misra">
+<meta property="og:description" content="Lyricist. Filmmaker. Radio storyteller. Author. Journalist.">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body class="s-hub" data-page="hub" data-root="">
+<header id="ubar"></header>
+<main>
+  <section class="wrap hero">
+    <h1>Neelesh<br>Misra</h1>
+    <div class="bio rv">
+      <p>tells stories. In film songs, on the radio at 9 PM, in cinema, on stage, in books, and in a newspaper for India's villages.</p>
+      <p>He began as a reporter chasing hijackings and cyclones, and found his way to <em>slowing down</em>.</p>
+      <p>Today he runs <a class="lnk" href="https://www.gaonconnection.com/">Gaon Connection</a> and The Slow Movement from Lucknow.</p>
+    </div>
+  </section>
+
+  <section class="wrap" aria-label="The work">
+    <p class="label dot" style="margin-bottom:1rem">The work</p>
+    <div class="roles" id="roles"></div>
+  </section>
+
+  <section class="now" aria-label="Now">
+    <div class="wrap">
+      <h2 class="sec-title dot">Now</h2>
+      <div class="grid" id="now"></div>
+    </div>
+  </section>
+
+  <section class="wrap movement" aria-label="The Slow Movement">
+    <h2 class="sec-title dot">The Slow Movement</h2>
+    <div class="row rv">
+      <div><h3>Gaon Connection</h3><p>Rural India's own media platform, started in 2012 from Kunaura village.</p></div>
+      <div><h3>Slow Content</h3><p>Stories, songs and interviews made without a hurry.</p></div>
+      <div><h3>Slow Imprint</h3><p>Books: poetry, stories and a father's postcards.</p></div>
+      <div><h3>Slow Music</h3><p>His own songs, in his own voice.</p></div>
+      <div><h3>Slow Bazaar</h3><p>Things made by hand in India's villages.</p></div>
+    </div>
+  </section>
+</main>
+<footer id="foot"></footer>
+<script src="assets/data.js"></script>
+<script src="assets/app.js"></script>
+<script>
+NM.page=function(){
+  var what={
+    lyrics:["33 film songs, from Jism to Metro… In Dino","#2b3f8c","Jaadu Hai Nasha Hai"],
+    films:["Kood, a film he wrote and directed","#0b0b0c","Kood"],
+    writer:["Ek Tha Tiger, Tiger Zinda Hai, Kood, Yaad Sheher","#d41f26","FADE IN:"],
+    radio:["Yaadon Ka Idiot Box and the 9 PM ritual","#0e1630","9:00 PM"],
+    live:["Stories told live, city to city","#7d1a1f","On stage"],
+    books:["Ten books: poems, stories, reportage","#b3261e","Main Aksar Sochta Hoon"],
+    "slow-interview":["Long, unhurried conversations","#161616","Slowly."],
+    journalist:["Kargil, IC-814, the tsunami","#4a4a46","Dateline"],
+    about:["The whole story","#6a6a6a","Since 1973"]
+  };
+  NM.$("#roles").innerHTML=NM.rooms.map(function(r,i){var w=what[r[0]];
+    return '<a class="role rv" href="'+r[0]+'/"><span class="n">0'+(i+1)+'</span><h2>'+r[1]+'</h2><span class="what">'+w[0]+'</span><span class="arr">→</span><span class="peek" style="background:'+w[1]+'">'+w[2]+'</span></a>'}).join("");
+  var k=NM.kood;
+  NM.$("#now").innerHTML=
+    '<div class="card rv">'+NM.video({yt:k.film,cap:"Watch Kood",q:"Kood Neelesh Misra",bg:k.banner})+'<p class="label k">New film · 2026</p><h3><a href="films/">Kood →</a></h3><p>'+k.logline+'</p></div>'+
+    '<a class="card rv" href="books/"><div class="tile" style="background:#d41f26 url(https://staticimg.publishstory.co/thumb/131386626.cms?imgsize=191214&width=900&resizemode=8) center/cover;font-family:var(--f-disp)"></div><p class="label k">Award · 2025</p><h3>Main Aksar Sochta Hoon wins the Dainik Jagran Kriti Samman</h3><p>His first book of poems, a Hindi bestseller.</p></a>'+
+    '<a class="card rv" href="slow-interview/"><div class="tile" style="background:#161616;font-family:var(--f-disp);font-style:italic">The Slow Interview</div><p class="label k">Watch</p><h3>Ayushmann Khurrana, Satinder Sartaaj, Alakh Pandey</h3><p>New conversations, taken slowly.</p></a>';
+};
+</script>
+</body>
+</html>

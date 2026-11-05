@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!--head-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Mukta:wght@400;600&family=Tiro+Devanagari+Hindi&family=Courier+Prime&display=swap">
+<script>(function(){try{var t=localStorage.getItem("nm-theme");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t)}catch(e){}})();</script>
+<!--/head-->
+<title>Kood · A film by Neelesh Misra</title>
+<meta name="description" content="Kood (2026), a Hindi film written and directed by Neelesh Misra. Watch the trailer, teaser and full film.">
+<meta property="og:title" content="Kood · A film by Neelesh Misra">
+<meta property="og:description" content="Two strangers on a bridge. One long day.">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body class="s-films" data-page="films" data-root="../">
+<header id="ubar"></header>
+<main>
+  <section class="cine" aria-label="Kood">
+    <div class="bg" id="bg"></div>
+    <div class="wrap">
+      <div>
+        <p class="label tag">Director</p>
+        <h1>Kood</h1>
+        <div class="meta"><span>Mini feature</span><span>2026</span><span>40 min</span><span>Hindi</span></div>
+        <p class="log" id="log"></p>
+        <div class="acts" id="acts"></div>
+      </div>
+      <aside>
+        <dl id="credits"></dl>
+      </aside>
+    </div>
+  </section>
+
+  <p class="quote-line">Two strangers · One bridge · One long day</p>
+
+  <section class="wrap reel" aria-label="Watch">
+    <h2 class="sec-title dot">Watch</h2>
+    <div class="grid" id="reel"></div>
+  </section>
+
+  <section class="wrap otherfilms" aria-label="Filmography">
+    <h2 class="sec-title dot">Filmography</h2>
+    <div class="frow"><h3>Kood</h3><span>Mini feature</span><span>Writer · Director · Actor</span><span>2026</span></div>
+    <div class="frow"><h3>Zindagi 1.0</h3><span>Song from Kood</span><span>Writer · Composer · Singer</span><span>2026</span></div>
+  </section>
+</main>
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="Video"><button class="x" aria-label="Close">×</button><div class="box"></div></div>
+<footer id="foot"></footer>
+<script src="../assets/data.js"></script>
+<script src="../assets/app.js"></script>
+<script>
+NM.page=function(){
+  var k=NM.kood, E=NM.esc, I=NM.icon;
+  NM.$("#bg").style.backgroundImage=k.trailer?"url(https://i.ytimg.com/vi/"+k.trailer+"/maxresdefault.jpg)":"url("+k.banner+")";
+  NM.$("#log").textContent=k.logline;
+  NM.$("#acts").innerHTML=
+    '<a class="lnk" href="'+NM.watchHref(k.trailer,"Kood official trailer Neelesh Misra")+'" data-v="'+k.trailer+'">'+I.eye+'Watch trailer</a>'+
+    '<a class="lnk" href="'+NM.watchHref(k.film,"Kood full movie Neelesh Misra Slow Motion Pictures")+'" data-v="'+k.film+'">'+I.film+'Watch Kood</a>';
+  NM.$("#credits").innerHTML=[["Written & directed by","Neelesh Misra"],["Cast",k.cast],["Producer",k.producer],["Music","“Zindagi 1.0” by Neelesh Misra"]].map(function(r){return '<div><dt>'+r[0]+'</dt><dd>'+E(r[1])+'</dd></div>'}).join("");
+  var zind=NM.ownSongs[0];
+  NM.$("#reel").innerHTML=NM.video({yt:k.film,cap:"Watch Kood",q:"Kood full movie Neelesh Misra",bg:k.banner})+
+    '<div class="stack">'+NM.video({yt:k.trailer,cap:"Official trailer",q:"Kood official trailer Neelesh Misra"})+NM.video({yt:k.teaser,cap:"Teaser",q:"Kood teaser Neelesh Misra"})+NM.video({yt:zind.yt,cap:"Zindagi 1.0 · the song",q:"Zindagi 1.0 Neelesh Misra"})+'</div>';
+  // trailer link opens in a modal when an id is known
+  document.addEventListener("click",function(e){
+    var a=e.target.closest("a[data-v]"); if(a&&a.getAttribute("data-v")){e.preventDefault();var m=NM.$("#modal");m.querySelector(".box").innerHTML=NM.video({yt:a.getAttribute("data-v")});m.classList.add("open");m.querySelector(".vid").click();return}
+    if(e.target.closest("#modal .x")||e.target.id==="modal"){var m2=NM.$("#modal");m2.classList.remove("open");m2.querySelector(".box").innerHTML=""}
+  });
+  document.addEventListener("keydown",function(e){if(e.key==="Escape"){var m=NM.$("#modal");m.classList.remove("open");m.querySelector(".box").innerHTML=""}});
+};
+</script>
+</body>
+</html>
