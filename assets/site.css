@@ -78,6 +78,8 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;paddin
 .f-cta:hover .go{background:#d41f26;border-color:#d41f26;color:#fff;transform:rotate(-45deg)}
 .f-index{display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid #2e2e2e;border-left:1px solid #2e2e2e;margin-top:1rem}
 .f-index a{border-right:1px solid #2e2e2e;border-bottom:1px solid #2e2e2e;padding:1.1rem 1rem 1.2rem;display:grid;gap:.15rem;transition:background .25s}
+.f-index a.f-gc{background:#d41f26}.f-index a.f-gc .n,.f-index a.f-gc small{color:#ffd0d2}
+.f-index a.f-gc:hover{background:#b8181f}
 .f-index a:hover{background:#1f1f1f;color:#fff}
 .f-index .n{font-size:.72rem;color:#d41f26;font-variant-numeric:tabular-nums}
 .f-index b{font-family:var(--f-disp);font-weight:400;font-size:1.25rem;color:#fff}
