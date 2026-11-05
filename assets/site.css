@@ -95,14 +95,13 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;paddin
 .f-soc svg{width:18px;height:18px}
 .f-fam{display:flex;gap:1.3rem;flex-wrap:wrap;align-items:center;font-size:.92rem;color:#cfcfca}
 .f-made{color:#8f8f8a;font-style:italic;font-family:var(--f-disp);font-size:1rem}
-.f-ground{position:relative;overflow:hidden;height:clamp(2.1rem,11.4vw,11rem);margin-top:1.5rem}
+.f-ground{position:relative;overflow:hidden;height:clamp(1.6rem,8.6vw,8.4rem);margin-top:1.5rem}
 .f-ground::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:#2e2e2e}
-.f-mark{position:absolute;right:max(20px,3vw);bottom:0;transform:translateY(26%);display:flex;font-family:var(--f-disp);font-size:clamp(2.6rem,15vw,14.5rem);line-height:.8;letter-spacing:-.045em;white-space:nowrap;user-select:none;color:transparent;-webkit-text-stroke:1px #4a4a4a}
-.f-mark span{display:inline-block;transition:transform .55s cubic-bezier(.2,.9,.25,1.2),color .4s,-webkit-text-stroke-color .4s;transition-delay:calc(var(--i)*28ms)}
+.f-mark{position:absolute;left:50%;right:auto;bottom:0;transform:translate(-50%,45%);display:flex;font-family:var(--f-disp);font-size:clamp(2.6rem,15vw,14.5rem);line-height:.8;letter-spacing:-.045em;white-space:nowrap;user-select:none;color:transparent;-webkit-text-stroke:1px #4a4a4a}
+.f-mark span{display:inline-block;transition:color .4s,-webkit-text-stroke-color .4s}
 .f-mark:hover{color:transparent}
-.f-mark:hover span{transform:translateY(-14%);color:#d41f26;-webkit-text-stroke-color:#d41f26}
+.f-mark:hover span{color:#d41f26;-webkit-text-stroke-color:#d41f26}
 @media (hover:none){.f-mark span{transition:none}}
-@media (prefers-reduced-motion:reduce){.f-mark:hover span{transform:none}}
 .f-bottom{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;font-size:.8rem;color:#8f8f8a;padding-top:1.2rem;padding-bottom:1.4rem;border-top:1px solid #2e2e2e}
 @media (max-width:900px){.f-top{grid-template-columns:1fr;padding-top:3.5rem}.f-index{grid-template-columns:1fr 1fr}.f-cta{grid-template-columns:1fr 2rem}.f-cta .label{grid-column:1/-1}}
 
@@ -619,3 +618,6 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;paddin
 .si-notes .meta{font-family:var(--f-body);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--muted);margin-bottom:.8rem}
 .si-day .day-head h2{font-size:clamp(2.4rem,4.4vw,3.6rem)}
 @media (max-width:560px){.si-stats{gap:1.2rem}.si-stats b{font-size:2rem}.si-stats span{font-size:.62rem;letter-spacing:.1em}}
+.si-feat .f-name{font-size:clamp(2.4rem,5vw,4.2rem);line-height:1;margin-top:1rem}
+.si-feat .f-role{color:#9f9f9b;margin-top:.5rem}
+.si-feat blockquote.f-hook{font-size:clamp(1.15rem,1.6vw,1.35rem);line-height:1.5;color:#d6d6d2;margin:1.4rem 0}

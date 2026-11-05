@@ -14,7 +14,7 @@
 <meta name="description" content="Long, unhurried conversations with actors, musicians, founders and thinkers. Hosted by Neelesh Misra.">
 <meta property="og:title" content="The Slow Interview with Neelesh Misra">
 <meta property="og:description" content="No rush. No clock. No gotcha. Long conversations with people who have lived interesting lives.">
-<link rel="stylesheet" href="../assets/site.css?v=1793853604">
+<link rel="stylesheet" href="../assets/site.css?v=1793854007">
 </head>
 <body class="s-si" data-page="slow-interview" data-root="../">
 <header id="ubar"></header>
@@ -86,8 +86,8 @@
   </section>
 </main>
 <footer id="foot"></footer>
-<script src="../assets/data.js?v=1793853604"></script>
-<script src="../assets/app.js?v=1793853604"></script>
+<script src="../assets/data.js?v=1793854007"></script>
+<script src="../assets/app.js?v=1793854007"></script>
 <script>
 NM.page=function(){
   var E=NM.esc,I=NM.icon,P=NM.person,all=NM.interviews;
@@ -103,8 +103,8 @@ NM.page=function(){
   var g=NM.$(".c-ticks"),t="";for(var i=0;i<60;i++){var a=i*6*Math.PI/180,r1=i%5?88:82;t+='<line x1="'+(100+r1*Math.sin(a)).toFixed(2)+'" y1="'+(100-r1*Math.cos(a)).toFixed(2)+'" x2="'+(100+92*Math.sin(a)).toFixed(2)+'" y2="'+(100-92*Math.cos(a)).toFixed(2)+'"'+(i%5?'':' class="big"')+'/>'}g.innerHTML=t;
 
   /* featured */
-  var f=talks.filter(function(v){return v.t==="Ayushmann Khurrana"})[0];
-  NM.$("#feat").innerHTML='<div class="f-q rv"><p class="label">In conversation · Season '+f.season+'</p><blockquote>“'+E(f.q)+'”</blockquote><p class="who"><b>'+E(f.t)+'</b> · '+E(f.role)+'</p><p class="len">'+nice(tot(f))+' of conversation. The longest so far: '+nice(tot(longest))+' with '+E(longest.t)+'.</p></div><div class="f-v rv">'+NM.video({yt:f.parts[0].yt,q:f.t+" The Slow Interview"})+'</div>';
+  var f=talks.filter(function(v){return v.t==="Prosenjit Chatterjee"})[0];
+  NM.$("#feat").innerHTML='<div class="f-q rv"><p class="label">Latest episode · Season '+f.season+'</p><h2 class="f-name">'+E(f.t)+'</h2><p class="f-role">'+E(f.role)+'</p><blockquote class="f-hook">'+E(f.about||f.hook)+'</blockquote><p class="len">'+nice(tot(f))+' of conversation. The longest so far: '+nice(tot(longest))+' with '+E(longest.t)+'.</p></div><div class="f-v rv">'+NM.video({yt:f.parts[0].yt,q:f.t+" The Slow Interview"})+'</div>';
 
   /* seasons */
   var SEAS=[["1","2018–19"],["2","2019–20"],["3","2021–23"],["4","2024"],["","Between seasons"],["5","2026"]];
