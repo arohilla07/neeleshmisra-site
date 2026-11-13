@@ -186,7 +186,7 @@ NM.page=function(){
   function openPh(el){var k=el.getAttribute("data-ph"),p=PH[k];if(!p)return;clearTimeout(hideT);
     if(openK&&openK!==el)openK.setAttribute("aria-expanded","false");openK=el;el.setAttribute("aria-expanded","true");
     pv.innerHTML='<button class="kw-x" aria-label="Close">×</button><img src="'+(p.img.indexOf("http")===0?p.img:"../"+p.img)+'" alt="'+E(p.cap)+'"><figcaption><b>'+E(p.cap)+'</b><span>Photo: '+(p.url?'<a href="'+p.url+'" target="_blank" rel="noopener">'+E(p.credit)+'</a>':E(p.credit))+'</span></figcaption>';
-    pv.hidden=false;pv.classList.remove("on");place(el);var im=NM.$("img",pv);im.onload=function(){if(openK===el)place(el)};requestAnimationFrame(function(){pv.classList.add("on")})}
+    pv.hidden=false;pv.classList.remove("on");place(el);var im=NM.$("img",pv);im.onload=function(){if(openK===el)place(el)};if(p.fb)im.onerror=function(){im.onerror=null;im.src=p.fb};requestAnimationFrame(function(){pv.classList.add("on")})}
   function closePh(){if(openK)openK.setAttribute("aria-expanded","false");openK=null;pv.classList.remove("on");hideT=setTimeout(function(){pv.hidden=true},200)}
   var fine=matchMedia("(hover:hover) and (pointer:fine)").matches;
   if(fine){document.addEventListener("mouseover",function(e){var k=e.target.closest(".kw");if(k)openPh(k);else if(openK&&!e.target.closest(".kw-pop"))closePh()})}
