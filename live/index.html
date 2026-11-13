@@ -21,26 +21,41 @@
 <main>
   <section class="wrap stage">
     <div>
+      <div class="marquee-sign" aria-hidden="true"><span class="bulbs" id="bulbs"></span><b>Tonight</b><em>Stories &amp; songs</em></div>
       <p class="label dot">Live shows</p>
       <h1>The story,<br><em>live.</em></h1>
       <p class="lede">The voice from the radio, on stage. Neelesh tells stories and sings, in cities across India, and the hall goes quiet the way a room does at 9 PM.</p>
-      <div class="acts"><a class="btn solid" id="book">Bring the show to your city</a><a class="btn" href="#formats">Formats</a></div>
+      <div class="acts"><a class="btn solid" id="book">Bring the show to your city</a><a class="btn" href="#tickets">Upcoming</a></div>
     </div>
     <div class="spot" id="reel"></div>
   </section>
 
-  <section class="wrap" id="formats">
-    <div class="formats">
-      <div class="f rv"><p class="label">For audiences</p><h3>Storytelling night</h3><p>Stories from Yaad Sheher, told live, with songs in between.</p></div>
-      <div class="f rv"><p class="label">For campuses</p><h3>In conversation</h3><p>On writing, slowing down, and building something of your own.</p></div>
-      <div class="f rv"><p class="label">For companies</p><h3>Keynote</h3><p>Conscious entrepreneurship and the Slow Movement, from Gaon Connection's founder.</p></div>
+  <section class="lv-tickets" id="tickets" aria-label="Upcoming shows">
+    <div class="wrap">
+      <div class="lv-head"><h2 class="sec-title dot">Coming up</h2><p>Stories, told live. Dates are announced to the letters list and on Instagram first.</p></div>
+      <div class="tix" id="tix"></div>
     </div>
   </section>
 
-  <section class="wrap dates" aria-label="Dates">
-    <h2 class="sec-title dot">Upcoming</h2>
-    <div class="date empty"><h3>New dates are announced on Instagram first.</h3><a class="btn" href="https://www.instagram.com/neeleshmisra/">Follow for dates</a></div>
-    <div class="date empty"><h3>Want a show in your city?</h3><a class="btn solid" id="book2">Send an enquiry</a></div>
+  <section class="lv-strip" aria-label="From past shows" id="stripwrap" hidden>
+    <div class="film" id="strip"></div>
+  </section>
+
+  <section class="wrap lv-acts" aria-label="What happens at a show">
+    <h2 class="sec-title dot">What happens at a show</h2>
+    <ol class="acts4" id="acts4"></ol>
+  </section>
+
+  <section class="wrap" id="formats">
+    <h2 class="sec-title dot">Formats</h2>
+    <div class="formats" id="fmts"></div>
+  </section>
+
+  <section class="lv-bring">
+    <div class="wrap lv-bring-in">
+      <div><p class="label">Bring the show</p><h2>A hall, a mic,<br><i>and two hours.</i></h2><p>Theatres, festivals, campuses and companies. Tell us the city and the date, and the team will write back.</p><a class="btn solid" id="book2">Send an enquiry</a></div>
+      <div class="lv-bring-art"><img src="../assets/img/art/stage.svg" alt=""></div>
+    </div>
   </section>
 </main>
 <footer id="foot"></footer>
@@ -48,8 +63,20 @@
 <script src="../assets/app.js?v=1793856585"></script>
 <script>
 NM.page=function(){
+  var E=NM.esc,ART=NM.art,P=NM.person;
   NM.$("#reel").innerHTML=NM.video({yt:NM.kood.showreel,cap:"Connecting Cities and Hearts · The Neelesh Misra showreel",q:"Neelesh Misra live show showreel"});
-  ["#book","#book2"].forEach(function(s){NM.$(s).href=NM.person.enquiry});
+  ["#book","#book2"].forEach(function(s){NM.$(s).href=P.enquiry});
+  var b="",pts=[],n=9,m=3,k;for(k=0;k<=n;k++)pts.push([k/n*100,0]);for(k=1;k<m;k++)pts.push([100,k/m*100]);for(k=n;k>=0;k--)pts.push([k/n*100,100]);for(k=m-1;k>0;k--)pts.push([0,k/m*100]);
+  pts.forEach(function(p,i){b+='<i style="left:calc('+p[0]+'% - 3px);top:calc('+p[1]+'% - 3px);--d:'+(i%3*.33)+'s"></i>'});NM.$("#bulbs").innerHTML=b;
+  var show=(NM.upcoming||[]).filter(function(u){return u.cities})[0]||{cities:[]};
+  NM.$("#tix").innerHTML=show.cities.map(function(c,i){var mine=c.soon;
+    return '<div class="tix1 rv'+(mine?' open':'')+'"><div class="tix-main"><p class="tix-k">Admit one · Stories, told live</p><h3>'+E(c.c)+'</h3><p class="tix-when">'+E(c.when)+'</p></div><div class="tix-stub"><span class="tix-no">No. '+String(i+1).padStart(3,"0")+'</span>'+(mine?'<a href="'+P.enquiry+'">Ask for a show</a>':'<a href="#signup">Notify me</a>')+'</div></div>'}).join("");
+  var L=NM.livePhotos||[];
+  if(L.length){NM.$("#stripwrap").hidden=false;var im=L.map(function(p){return '<figure><img src="../'+p.img+'" alt="'+E(p.alt||"Neelesh Misra on stage")+'" loading="lazy"><figcaption>'+E(p.credit)+'</figcaption></figure>'}).join("");NM.$("#strip").innerHTML=im+im}
+  var A4=[["live","Lights down","The phone screens go dark. Somewhere a cup of chai goes cold."],["radio","A story from Yaad Sheher","Told the way it was on the radio at nine: close, slow, in his voice."],["music","Songs in between","Songs he wrote for films and for himself, sung live."],["chai","The quiet after","A long silence, then the applause. People stay back to talk."]];
+  NM.$("#acts4").innerHTML=A4.map(function(a,i){return '<li class="rv"><span class="a4-ico">'+ART[a[0]]+'</span><span class="a4-n">Act '+["I","II","III","IV"][i]+'</span><h3>'+a[1]+'</h3><p>'+a[2]+'</p></li>'}).join("");
+  var F=[["books","For audiences","Storytelling night","Stories from Yaad Sheher, told live, with songs in between."],["journalist","For campuses","In conversation","On writing, slowing down, and building something of your own."],["gaon","For companies","Keynote","Conscious entrepreneurship and the Slow Movement, from Gaon Connection's founder."]];
+  NM.$("#fmts").innerHTML=F.map(function(f){return '<div class="f rv"><span class="f-ico">'+ART[f[0]]+'</span><p class="label">'+f[1]+'</p><h3>'+f[2]+'</h3><p>'+f[3]+'</p></div>'}).join("");
 };
 </script>
 </body>

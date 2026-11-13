@@ -60,8 +60,8 @@
   <!-- 5. Quote wall -->
   <section class="si-quotes" aria-label="Things guests said"><div class="wrap"><p class="label">Overheard at The Slow Interview</p><div class="qwall" id="quotes"></div></div></section>
 
-  <!-- 6. A Slow Day -->
-  <section class="wrap si-day" id="day" aria-label="A Slow Day with Neelesh Misra"></section>
+  <!-- 6. Also from the show -->
+  <section class="wrap si-day" id="day" aria-label="Also from the show"></section>
 
   <!-- 7. Close -->
   <section class="wrap si-cta">
@@ -79,7 +79,7 @@ NM.page=function(){
   function tot(v){return v.parts.reduce(function(a,p){return a+p.s},0)}
   function nice(s){if(!s)return "";var h=Math.floor(s/3600),m=Math.round((s%3600)/60);if(m===60){h++;m=0}return h?(h+" hr"+(m?" "+m+" min":"")):m+" min"}
   function hms(t){var p=t.split(":").map(Number),s=0;p.forEach(function(x){s=s*60+x});return s}
-  var talks=all.filter(function(v){return v.series!=="day"}),days=all.filter(function(v){return v.series==="day"});
+  var talks=all;
   var max=Math.max.apply(null,talks.map(tot)),hours=all.reduce(function(a,v){return a+tot(v)},0)/3600;
   var longest=talks.slice().sort(function(a,b){return tot(b)-tot(a)})[0];
 
@@ -97,8 +97,8 @@ NM.page=function(){
   NM.$("#feat").innerHTML='<div class="f-q rv"><p class="label">Latest episode · Season '+f.season+'</p><h2 class="f-name">'+E(f.t)+'</h2><p class="f-role">'+E(f.role)+'</p><blockquote class="f-hook">'+E(f.about||f.hook)+'</blockquote><p class="len">'+nice(tot(f))+' of conversation. The longest so far: '+nice(tot(longest))+' with '+E(longest.t)+'.</p></div><div class="f-v rv">'+NM.video({yt:f.parts[0].yt,q:f.t+" The Slow Interview"})+'</div>';
 
   /* seasons */
-  var SEAS=[["1","2018–19"],["2","2019–20"],["3","2021–23"],["4","2024"],["","Between seasons"],["5","2026"]];
-  NM.$("#seas").innerHTML='<button class="sea" data-s="*" aria-pressed="true"><b>All</b><span>2018 onward</span><em>'+talks.length+' guests</em></button>'+SEAS.map(function(x){var n=talks.filter(function(v){return String(v.season)===x[0]}).length;return '<button class="sea" data-s="'+x[0]+'" aria-pressed="false"><b>'+(x[0]?'Season '+x[0]:'2025')+'</b><span>'+x[1]+'</span><em>'+n+' guest'+(n>1?'s':'')+'</em></button>'}).join("");
+  var SEAS=[["1","2018–19"],["2","2019–20"],["3","2021–23"],["4","2024"],["","2025–26"],["5","2026"]];
+  NM.$("#seas").innerHTML='<button class="sea" data-s="*" aria-pressed="true"><b>All</b><span>2018 onward</span><em>'+talks.length+' guests</em></button>'+SEAS.map(function(x){var n=talks.filter(function(v){return String(v.season)===x[0]}).length;return '<button class="sea" data-s="'+x[0]+'" aria-pressed="false"><b>'+(x[0]?'Season '+x[0]:'Specials')+'</b><span>'+x[1]+'</span><em>'+n+' guest'+(n>1?'s':'')+'</em></button>'}).join("");
 
   /* index */
   var fields=["All"];talks.forEach(function(v){if(fields.indexOf(v.field)<0)fields.push(v.field)});
@@ -148,10 +148,8 @@ NM.page=function(){
   /* quotes */
   NM.$("#quotes").innerHTML=talks.filter(function(v){return v.q&&v!==f}).map(function(v){return '<figure class="rv"><blockquote>“'+E(v.q)+'”</blockquote><figcaption>'+E(v.t)+'</figcaption></figure>'}).join("");
 
-  /* a slow day */
-  NM.$("#day").innerHTML='<div class="day-in"><div class="day-head"><p class="label dot">The new series · 2026</p><h2>A Slow Day <i>with Neelesh Misra</i></h2><p>The conversations move into business, ambition, leadership and ideas. Neelesh spends a whole day with people who build things.</p></div><div class="day-grid">'+
-    days.map(function(v){return '<div class="rv">'+NM.video({yt:v.parts[0].yt,cap:nice(tot(v)),q:v.t+" A Slow Day"})+'<h3>'+E(v.t)+'</h3><p>'+E(v.role)+'. '+E(v.hook)+'</p></div>'}).join("")+
-    '<div class="day-more"><p class="label">Also from the show</p>'+NM.interviewExtras.map(function(x){return '<a href="https://www.youtube.com/watch?v='+x.yt+'" target="_blank" rel="noopener"><b>'+E(x.t)+'</b><span>'+E(x.hook)+' · '+nice(x.s)+'</span></a>'}).join("")+'</div></div></div>';
+  /* also from the show */
+  NM.$("#day").innerHTML='<div class="day-more day-solo"><p class="label">Also from the show</p>'+NM.interviewExtras.map(function(x){return '<a href="https://www.youtube.com/watch?v='+x.yt+'" target="_blank" rel="noopener"><b>'+E(x.t)+'</b><span>'+E(x.hook)+' · '+nice(x.s)+'</span></a>'}).join("")+'</div>';
 
   NM.$("#suggest").href=P.enquiry;
 };
