@@ -18,17 +18,41 @@
 <body class="s-books" data-page="books" data-root="../">
 <header id="ubar"></header>
 <main>
-  <section class="wrap mast">
-    <p class="label kicker dot">Author</p>
-    <h1>The Shelf</h1>
-    <p class="lede">Poems, stories from Yaad Sheher, a hijacking told hour by hour, and his father's postcards from the village. Pick a book.</p>
-  </section>
-  <section class="wrap">
-    <div class="shelf" id="shelf" role="list"></div>
-    <div class="bookdetail">
-      <div id="book" aria-live="polite"></div>
-      <div class="arts"><p class="label dot">Writing elsewhere</p><div id="arts"></div></div>
+  <section class="wrap bk2-hero">
+    <div class="bk2-say">
+      <p class="label kicker dot">Author</p>
+      <h1>The Shelf</h1>
+      <p class="lede">Poems, stories from Yaad Sheher, a hijacking told hour by hour, and his father's postcards from the village. Ten books across twenty-five years.</p>
+      <div class="bk2-feat" id="feat"></div>
     </div>
+    <div class="bk2-stage" id="stage"></div>
+  </section>
+
+  <section class="bk2-shelfwrap" aria-label="All books">
+    <div class="wrap">
+      <div class="bk2-shelfhead"><h2 class="sec-title dot">Every book</h2><p class="muted">Pick one off the shelf.</p></div>
+      <div class="bk2-shelf" id="shelf" role="list"></div>
+      <div class="bk2-plank" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <section class="wrap bk2-detail" id="detail" aria-live="polite"></section>
+
+  <section class="bk2-imprint" aria-label="Slow Imprint">
+    <div class="wrap bk2-imp-in">
+      <div class="bk2-imp-stamp" id="impstamp"></div>
+      <div>
+        <p class="label">His publishing house</p>
+        <h2>Slow Imprint</h2>
+        <p class="bk2-imp-lede">Books from lived lives, published without a hurry. Slow Imprint published his own poems, and books by others whose stories needed a home.</p>
+        <ul class="bk2-imp-list"><li><b>Gaon Se Bees Postcards</b><span>Dr. Shiv Balak Misra</span></li><li><b>Junglee Phoolon Si Ladki</b><span>Slow Imprint</span></li><li><b>Kaaljayi</b><span>Slow Imprint</span></li><li><b>Magic Box</b><span>Slow Imprint</span></li></ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap bk2-arts">
+    <div class="bk2-arts-head"><h2 class="sec-title dot">Writing elsewhere</h2><span class="bk2-arts-ico" id="artsico"></span></div>
+    <div class="bk2-arts-grid" id="arts"></div>
   </section>
 </main>
 <footer id="foot"></footer>
@@ -36,17 +60,29 @@
 <script src="../assets/app.js?v=1793856585"></script>
 <script>
 NM.page=function(){
-  var E=NM.esc, B=NM.books;
-  function cover(b,i){var title=b.t;return '<button class="cover" role="listitem" data-i="'+i+'" style="background:'+b.c1+(b.img?' url('+b.img+') center/cover':'')+';color:'+b.c2+'">'+(b.img?'':'<span class="ce">'+E(title)+'</span><small>'+E(b.by||"Neelesh Misra")+'</small>')+'</button>'}
-  NM.$("#shelf").innerHTML=B.map(cover).join("");
-  function show(i){var b=B[i];
-    NM.$$(".cover").forEach(function(c){c.setAttribute("aria-current",c.getAttribute("data-i")==i)});
+  var E=NM.esc, B=NM.books, ART=NM.art;
+  function buy(b){return b.buy||"https://www.amazon.in/s?k="+encodeURIComponent(b.t+" "+(b.by||"Neelesh Misra"))}
+  function face(b){return b.img?'<img src="'+b.img+'" alt="Cover of '+E(b.t)+'" loading="lazy">':'<span class="bk2-type" style="background:'+b.c1+';color:'+b.c2+'"><small>'+E(b.cat)+'</small><b>'+E(b.t)+'</b><em>'+E(b.by||"Neelesh Misra")+'</em><i>'+E(b.pub)+'</i></span>'}
+  function book(b,cls){return '<span class="bk3 '+(cls||"")+'" style="--spine:'+b.c1+'"><span class="bk3-face">'+face(b)+'</span><span class="bk3-pages" aria-hidden="true"></span></span>'}
+  var f=B[0];
+  NM.$("#stage").innerHTML='<div class="bk2-glow" aria-hidden="true"></div>'+book(f,"big")+'<span class="bk2-ribbon"><b>Kriti Samman</b><small>Dainik Jagran · 2026</small></span><span class="bk2-cup" aria-hidden="true">'+ART.chai+'</span>';
+  NM.$("#feat").innerHTML='<p class="label">Newest · '+E(f.cat)+' · '+f.y+'</p><h2>'+E(f.t)+'</h2><p>'+E(f.blurb)+'</p><div class="bk2-acts"><a class="btn solid" href="'+buy(f)+'" target="_blank" rel="noopener">Buy the book</a><button class="btn" data-i="0">More about it</button></div>';
+  NM.$("#shelf").innerHTML=B.map(function(b,i){return '<button class="bk2-b" role="listitem" data-i="'+i+'" aria-label="'+E(b.t)+'">'+book(b)+'<span class="bk2-y">'+(b.y||"")+'</span></button>'}).join("");
+  function show(i,scroll){var b=B[i];
+    NM.$$(".bk2-b").forEach(function(c){c.setAttribute("aria-current",c.getAttribute("data-i")==i)});
     var rows=[["Author",b.by||"Neelesh Misra"],["Publisher",b.pub],["Category",b.cat],["Year",b.y]].filter(function(r){return r[1]});
-    NM.$("#book").innerHTML='<h2>'+E(b.t)+'</h2><dl>'+rows.map(function(r){return '<dt>'+r[0]+'</dt><dd>'+E(r[1])+'</dd>'}).join("")+'</dl><p class="blurb">'+E(b.blurb)+'</p><p style="margin-top:1.6rem"><a class="btn solid" href="'+(b.buy||"https://www.amazon.in/s?k="+encodeURIComponent(b.t+" "+(b.by||"Neelesh Misra")))+'" target="_blank" rel="noopener">Buy the book</a></p>';
+    NM.$("#detail").innerHTML='<div class="bk2-d-cover">'+book(b,"mid")+(b.cover?'<p class="bk2-cr">Cover: '+E(b.cover)+'</p>':'')+'</div><div class="bk2-d-text"><p class="label">'+String(i+1).padStart(2,"0")+' of '+B.length+'</p><h2>'+E(b.t)+'</h2>'+(b.h?'<p class="hi">'+E(b.h)+'</p>':'')+'<p class="blurb">'+E(b.blurb)+'</p><dl>'+rows.map(function(r){return '<div><dt>'+r[0]+'</dt><dd>'+E(r[1])+'</dd></div>'}).join("")+'</dl><div class="bk2-acts"><a class="btn solid" href="'+buy(b)+'" target="_blank" rel="noopener">Buy the book</a><button class="btn" data-step="-1">← Previous</button><button class="btn" data-step="1">Next →</button></div></div>';
+    cur=i; if(scroll)NM.$("#detail").scrollIntoView({behavior:"smooth",block:"center"});
   }
-  document.addEventListener("click",function(e){var c=e.target.closest(".cover");if(c)show(+c.getAttribute("data-i"))});
-  show(0);
-  NM.$("#arts").innerHTML=NM.articles.map(function(a){return '<div class="art"><p class="label">'+(a.d?E(a.d):"neeleshmisra.com")+'</p><h3>'+E(a.t)+'</h3><a class="lnk" href="'+(a.u||"https://neeleshmisra.com/read")+'">Read '+NM.icon.arrow+'</a></div>'}).join("");
+  var cur=0;
+  document.addEventListener("click",function(e){
+    var c=e.target.closest("[data-i]");if(c&&!c.closest(".f-index")){show(+c.getAttribute("data-i"),true);return}
+    var st=e.target.closest("[data-step]");if(st){show((cur+ +st.getAttribute("data-step")+B.length)%B.length,false)}
+  });
+  show(0,false);
+  NM.$("#impstamp").innerHTML='<span class="bk2-stamp">'+ART.imprint+'<b>Slow Imprint</b><small>Est. under The Slow Movement</small></span>';
+  NM.$("#artsico").innerHTML=ART.lyrics;
+  NM.$("#arts").innerHTML=NM.articles.map(function(a){return '<a class="bk2-art" href="'+(a.u||"https://neeleshmisra.com/read")+'"><p class="label">'+(a.d?E(a.d):"neeleshmisra.com")+'</p><h3>'+E(a.t)+'</h3><span class="lnk">Read '+NM.icon.arrow+'</span></a>'}).join("");
 };
 </script>
 </body>
