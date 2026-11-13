@@ -54,6 +54,9 @@ window.NM = {
     tenk: { img: "assets/img/events/tenk.jpg", cap: "Signing the Ten Thousand Creators Project agreement in Bastar, 2022", credit: "Gaon Connection", url: "https://www.gaonconnection.com/english/10000-creators-project-neelesh-misra-bastar-mou-chhattisgarh-slow-movement-products-rural-tribal-art-50597/" },
     redfm: { img: "assets/img/events/redfm.jpg", cap: "Reading at the mic, the photo used for The Neelesh Misra Show on Red FM, 2016", credit: "webindia123", url: "https://movie.webindia123.com/film/artist/2329/neelesh-misra/" },
     goenka: { img: "assets/img/events/goenka.jpg", cap: "Receiving the Ramnath Goenka Excellence in Journalism Award", credit: "The Indian Express", url: "https://indianexpress.com/photos/picture-gallery-others/winners-of-the-ramnath-goenka-excellence-in-journalism-award-for-2012/" },
+    live: { img: "assets/img/events/live.jpg", cap: "The Art of Storytelling session at Goafest, 2024", credit: "Manifest Media", url: "https://www.manifest-media.in/media-/020624/goafest-2024-biggest-concern-in-communication-is-not-understanding-on.html" },
+    slowinterview: { img: "assets/img/events/slowinterview.jpg", cap: "With Vikas Divyakirti on The Slow Interview", credit: "The Slow Interview, YouTube", url: "https://www.youtube.com/watch?v=zGFqJsxgqI4" },
+    mash: { img: "assets/img/events/mash.jpg", cap: "Signing Main Aksar Sochta Hoon at Midland Book Shop, Delhi", credit: "Midland The Book Shop", url: "https://www.midlandbookshop.com/en/page/authors-at-midland-the-book-shop-hauz-khas" },
     home: { img: "assets/img/journey/home-seated.jpg", cap: "At home in Mumbai", credit: "NM Digital (neeleshmisra.com)", url: "https://www.neeleshmisra.com/" }
   },
 
