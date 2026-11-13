@@ -30,30 +30,55 @@
       </div>
       <div class="h-acts"><a class="btn solid" href="films/">Watch Kood</a><a class="btn" href="lyrics/">Open the songbook</a></div>
     </div>
-    <a class="h-scroll" href="#work" aria-label="See the work">↓</a>
+    <a class="h-scroll" href="#now" aria-label="See the work">↓</a>
+  </section>
+
+  <section class="now3" id="now" aria-label="Now">
+    <div class="wrap">
+      <div class="now-head"><h2 class="dot">Now</h2><p>What Neelesh is making this year, and what's coming next.</p></div>
+      <div class="now-up" id="nowup"></div>
+      <div class="now-out"><p class="label">Just out</p><div class="now-grid" id="nowout"></div></div>
+    </div>
   </section>
 
   <section class="wrap" id="work" aria-label="The work" style="padding-top:4.5rem">
     <p class="label dot" style="margin-bottom:1rem">The work</p>
     <div class="roles" id="roles"></div>
   </section>
+  <div class="peek2" id="peek" aria-hidden="true"><div class="pk-in"><div class="pk-img" id="pkimg"></div><div class="pk-cap"><span class="pk-ico" id="pkico"></span><span><small id="pkn"></small><b id="pkt"></b></span></div></div></div>
 
-  <section class="now2" aria-label="Now">
-    <div class="wrap">
-      <div class="now-head"><h2 class="dot">Now</h2><p>What Neelesh is making this year.</p></div>
-      <div class="grid" id="now"></div>
+  <section class="tune" aria-label="Tune in to Neelesh's radio years">
+    <div class="wrap tune-in">
+      <div class="tune-say">
+        <p class="label dot">On the radio since 2011</p>
+        <h2>Nine o'clock.<br><i>Switch off the TV.</i></h2>
+        <p class="tune-lede" id="tunetxt"></p>
+        <a class="lnk" href="radio/">Listen to the stories <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+      <div class="set" id="set">
+        <div class="set-top"><span class="set-brand">Yaad Sheher</span><span class="set-led" aria-hidden="true"></span></div>
+        <div class="set-face">
+          <div class="set-grille" aria-hidden="true"></div>
+          <div class="set-dialbox">
+            <div class="set-dial" id="dial" role="slider" tabindex="0" aria-label="Tune the radio" aria-valuemin="88" aria-valuemax="108" aria-valuenow="92.7"><div class="set-scale" id="scale"></div><span class="set-needle" id="needle"></span></div>
+            <div class="set-st" id="stations" role="group" aria-label="Stations"></div>
+          </div>
+        </div>
+        <div class="set-knobs" aria-hidden="true"><span></span><span class="big"></span></div>
+      </div>
     </div>
   </section>
 
+  <section class="wrap posts" aria-label="Recent posts">
+    <div class="posts-head"><h2 class="sec-title dot">From the notebook</h2><a class="lnk" href="https://neeleshmisra.com/read">All posts <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+    <div class="posts-grid" id="posts"></div>
+  </section>
+
+  <div class="slowline" aria-hidden="true"><div class="sl-track" id="slow"></div></div>
+
   <section class="wrap movement" aria-label="The Slow Movement">
     <h2 class="sec-title dot">The Slow Movement</h2>
-    <div class="row rv">
-      <div><h3>Gaon Connection</h3><p>Rural India's own media platform, started in 2012 from Kunaura village.</p></div>
-      <div><h3>Slow Content</h3><p>Stories, songs and interviews made without a hurry.</p></div>
-      <div><h3>Slow Imprint</h3><p>Books: poetry, stories and a father's postcards.</p></div>
-      <div><h3>Slow Music</h3><p>His own songs, in his own voice.</p></div>
-      <div><h3>Slow Bazaar</h3><p>Things made by hand in India's villages.</p></div>
-    </div>
+    <div class="row rv" id="move"></div>
   </section>
 </main>
 <footer id="foot"></footer>
@@ -61,28 +86,84 @@
 <script src="assets/app.js?v=1793856585"></script>
 <script>
 NM.page=function(){
+  var E=NM.esc,ART=NM.art,ROOT=location.href;
   var hp=NM.$('#hphoto'); if(NM.person.hero){hp.style.setProperty('--hero-img','url('+new URL(NM.person.hero,location.href).href+')'); if(NM.person.heroCredit)NM.$('#hcap').textContent=NM.person.heroCredit}
+  var mq=function(id){return "https://i.ytimg.com/vi/"+id+"/mqdefault.jpg"};
+  var hq=function(id){return "https://i.ytimg.com/vi/"+id+"/hqdefault.jpg"};
+
+  /* ---- Now: what's coming, what's just out ---- */
+  var U=NM.upcoming||[];
+  NM.$("#nowup").innerHTML=U.map(function(c,i){return '<a class="up rv'+(c.img?'':' noimg')+'" href="'+c.href+'"><div class="up-img"'+(c.img?' style="background-image:url('+c.img+');background-position:'+(c.pos||"center")+'"':'')+'>'+(c.img?'':(c.art||''))+'<span class="up-tag">'+E(c.tag)+'</span>'+(c.credit?'<span class="up-cr">'+E(c.credit)+'</span>':'')+'</div><div class="up-body"><p class="up-when">'+E(c.when)+'</p><h3>'+E(c.t)+'</h3><p>'+E(c.d)+'</p>'+(c.cities?'<ul class="up-cities">'+c.cities.map(function(x){return '<li'+(x.soon?' class="soon"':'')+'><b>'+E(x.c)+'</b><span>'+E(x.when)+'</span></li>'}).join("")+'</ul>':'')+'<span class="ncta">'+E(c.cta)+' '+NM.icon.arrow+'</span></div></a>'}).join("");
+  var k=NM.kood;
+  var out=[
+    {href:"films/",img:hq(k.film),tag:"New film",when:"2026",t:"Kood",d:"Two strangers on a bridge, one long day. Written and directed by Neelesh.",cta:"Watch the film",play:1},
+    {href:"slow-interview/",img:hq("9xriJ_sA45Y"),tag:"The Slow Interview",when:"Season 5",t:"New conversations every season",d:"Long talks with no clock, now including the business and leadership episodes.",cta:"Watch episodes",play:1},
+    {href:"books/",img:(NM.books[0].img||"assets/img/nm-portrait-bw-seema-chaubey.jpg"),pos:"center 30%",tag:"Award",when:"May 2026",t:"Main Aksar Sochta Hoon wins the Kriti Samman",d:"His first book of poems, a Dainik Jagran Hindi bestseller.",cta:"See the book"}
+  ];
+  NM.$("#nowout").innerHTML=out.map(function(c,i){return '<a class="ncard rv" href="'+c.href+'"><div class="nimg" style="background-image:url('+c.img+');background-position:'+(c.pos||"center")+'">'+(c.play?'<span class="nplay">'+NM.icon.play+'</span>':'')+'</div><div class="nbody"><p class="ntag"><span>'+c.tag+'</span>'+c.when+'</p><h3>'+c.t+'</h3><p class="nd">'+c.d+'</p><span class="ncta">'+c.cta+' '+NM.icon.arrow+'</span></div></a>'}).join("");
+
+  /* ---- The work: rooms with a drawing each, and a postcard that follows the cursor ---- */
   var what={
-    lyrics:["33 film songs, from Jism to Metro… In Dino","#2b3f8c","Jaadu Hai Nasha Hai"],
-    films:["Kood, a film he wrote and directed","#0b0b0c","Kood"],
-    writer:["Ek Tha Tiger, Tiger Zinda Hai, Kood, Yaad Sheher","#d41f26","FADE IN:"],
-    radio:["Yaadon Ka Idiot Box and the 9 PM ritual","#0e1630","9:00 PM"],
-    live:["Stories told live, city to city","#7d1a1f","On stage"],
-    books:["Ten books: poems, stories, reportage","#b3261e","Main Aksar Sochta Hoon"],
-    "slow-interview":["Long, unhurried conversations","#161616","Slowly."],
-    journalist:["Kargil, IC-814, the tsunami","#4a4a46","Dateline"],
-    about:["The whole story","#6a6a6a","Since 1973"]
+    lyrics:["33 film songs, from Jism to Metro… In Dino",mq("gTSL0Rv0am4"),"Jaadu Hai Nasha Hai, 2003"],
+    films:["Kood, a film he wrote and directed",mq(k.film),"Kood, 2026"],
+    writer:["Ek Tha Tiger, Tiger Zinda Hai, Kood, Yaad Sheher",mq("SmUl0l8qBXw"),"Ek Tha Tiger, 2012"],
+    radio:["Yaadon Ka Idiot Box and the 9 PM ritual","assets/img/nm-recording-studio.jpg","In the studio, 2013"],
+    live:["Stories told live, city to city",(NM.livePhotos&&NM.livePhotos[0]?NM.livePhotos[0].img:mq(k.showreel)),"On stage"],
+    books:["Ten books: poems, stories, reportage",(NM.books[0].img||""),"Main Aksar Sochta Hoon, 2025"],
+    "slow-interview":["Long, unhurried conversations",mq("9xriJ_sA45Y"),"No rush. No clock."],
+    journalist:["Kargil, IC-814, the tsunami","assets/img/journey/kargil-1999.jpg","Off to Kargil, 1999"],
+    about:["The whole story","assets/img/journey/portrait-bw-tall.jpg","Since 1973"]
   };
   NM.$("#roles").innerHTML=NM.rooms.map(function(r,i){var w=what[r[0]];
-    return '<a class="role rv" href="'+r[0]+'/"><span class="n">0'+(i+1)+'</span><h2>'+r[1]+'</h2><span class="what">'+w[0]+'</span><span class="arr">→</span><span class="peek" style="background:'+w[1]+'">'+w[2]+'</span></a>'}).join("");
-  var k=NM.kood;
-  var yt=function(id){return "https://i.ytimg.com/vi/"+id+"/hqdefault.jpg"};
-  var cards=[
-    {href:"films/",img:yt(k.film),tag:"New film",when:"2026",t:"Kood",d:"Two strangers on a bridge, one long day. Written and directed by Neelesh.",cta:"Watch the film",play:1},
-    {href:"books/",img:"assets/img/nm-portrait-bw-seema-chaubey.jpg",pos:"center 22%",tag:"Award",when:"May 2026",t:"Main Aksar Sochta Hoon wins the Kriti Samman",d:"His first book of poems, a Dainik Jagran Hindi bestseller.",cta:"See the book"},
-    {href:"slow-interview/",img:yt("9xriJ_sA45Y"),tag:"The Slow Interview",when:"Season 4",t:"Ayushmann Khurrana, Satinder Sartaaj, Alakh Pandey",d:"Long conversations, taken slowly.",cta:"Watch episodes",play:1}
-  ];
-  NM.$("#now").innerHTML=cards.map(function(c,i){return '<a class="ncard rv" href="'+c.href+'"><div class="nimg" style="background-image:url('+c.img+');background-position:'+(c.pos||"center")+'">'+(c.play?'<span class="nplay">'+NM.icon.play+'</span>':'')+'<span class="nnum">0'+(i+1)+'</span></div><div class="nbody"><p class="ntag"><span>'+c.tag+'</span>'+c.when+'</p><h3>'+c.t+'</h3><p class="nd">'+c.d+'</p><span class="ncta">'+c.cta+' '+NM.icon.arrow+'</span></div></a>'}).join("");
+    return '<a class="role rv" href="'+r[0]+'/" data-k="'+r[0]+'" data-i="'+i+'"><span class="n">0'+(i+1)+'</span><span class="r-ico">'+ART[r[0]]+'</span><h2>'+r[1]+'</h2><span class="what">'+w[0]+'</span><span class="arr">→</span></a>'}).join("");
+  // preload the postcard images
+  Object.keys(what).forEach(function(k){var im=new Image();im.src=what[k][1]});
+  var pk=NM.$("#peek"),pimg=NM.$("#pkimg"),on=false,x=0,y=0,tx=0,ty=0,raf=0,cur="";
+  function loop(){x+=(tx-x)*.14;y+=(ty-y)*.14;var rot=Math.max(-8,Math.min(8,(tx-x)*.06));pk.style.transform="translate3d("+x+"px,"+y+"px,0) rotate("+rot+"deg)";raf=on||Math.abs(tx-x)>.5?requestAnimationFrame(loop):0}
+  var fine=matchMedia("(hover:hover) and (pointer:fine)").matches;
+  if(fine){
+    NM.$("#roles").addEventListener("mousemove",function(e){
+      var a=e.target.closest(".role");if(!a)return;
+      tx=e.clientX+36;ty=e.clientY-232;
+      if(!on){on=true;x=tx;y=ty+30;pk.classList.add("on")}
+      var key=a.getAttribute("data-k");
+      if(key!==cur){cur=key;var w=what[key],r=NM.rooms[+a.getAttribute("data-i")];
+        pk.classList.remove("swap");void pk.offsetWidth;pk.classList.add("swap");
+        pimg.style.backgroundImage=w[1]?"url("+w[1]+")":"none";
+        NM.$("#pkico").innerHTML=ART[key];NM.$("#pkn").textContent="No. 0"+(+a.getAttribute("data-i")+1)+" · "+r[1];NM.$("#pkt").textContent=w[2];}
+      if(!raf)raf=requestAnimationFrame(loop);
+    });
+    NM.$("#roles").addEventListener("mouseleave",function(){on=false;cur="";pk.classList.remove("on")});
+  }
+
+  /* ---- The radio set ---- */
+  var ST=NM.stations||[];
+  var sc="";for(var f=88;f<=108;f+=.5){var big=f%2===0;sc+='<i class="'+(big?'b':'')+'" style="left:'+((f-88)/20*100)+'%">'+(big?'<em>'+f+'</em>':'')+'</i>'}
+  NM.$("#scale").innerHTML=sc;
+  NM.$("#stations").innerHTML=ST.map(function(s,i){return '<button data-i="'+i+'" aria-pressed="false"><b>'+E(s.f)+'</b><span>'+E(s.name)+'</span></button>'}).join("");
+  var needle=NM.$("#needle"),dial=NM.$("#dial"),txt=NM.$("#tunetxt"),set=NM.$("#set");
+  function pos(fq){return Math.max(0,Math.min(100,(fq-88)/20*100))}
+  function tune(i){var s=ST[i];if(!s)return;needle.style.left=pos(s.fq)+"%";dial.setAttribute("aria-valuenow",s.fq);dial.setAttribute("aria-valuetext",s.f+" "+s.name);
+    NM.$$("#stations button").forEach(function(b){b.setAttribute("aria-pressed",+b.getAttribute("data-i")===i)});
+    set.classList.remove("hiss");void set.offsetWidth;set.classList.add("hiss");
+    txt.innerHTML='<b>'+E(s.name)+'</b> <span>'+E(s.y)+'</span><br>'+E(s.d);cur2=i}
+  var cur2=0;tune(0);
+  NM.$("#stations").addEventListener("click",function(e){var b=e.target.closest("button");if(b)tune(+b.getAttribute("data-i"))});
+  dial.addEventListener("keydown",function(e){if(e.key==="ArrowRight"||e.key==="ArrowUp"){tune((cur2+1)%ST.length);e.preventDefault()}if(e.key==="ArrowLeft"||e.key==="ArrowDown"){tune((cur2-1+ST.length)%ST.length);e.preventDefault()}});
+  dial.addEventListener("click",function(e){var r=dial.getBoundingClientRect(),fq=88+(e.clientX-r.left)/r.width*20,best=0;ST.forEach(function(s,i){if(Math.abs(s.fq-fq)<Math.abs(ST[best].fq-fq))best=i});tune(best)});
+
+  /* ---- From the notebook: recent posts ---- */
+  var P=(NM.posts&&NM.posts.length?NM.posts:NM.articles).slice(0,6);
+  NM.$("#posts").innerHTML=P.map(function(p,i){return '<a class="post rv'+(i===0?' lead':'')+'" href="'+(p.u||p.link)+'"'+(p.img?'':' data-noimg')+'>'+(p.img?'<div class="post-img" style="background-image:url('+p.img+')"></div>':'<div class="post-img ph">'+ART[["chai","books","radio","stamp","imprint","content"][i%6]]+'</div>')+'<div class="post-body"><p class="label">'+E(p.cat||"Notebook")+(p.d?' · '+E(p.d):'')+'</p><h3>'+E(p.t)+'</h3>'+(p.ex?'<p class="post-ex">'+E(p.ex)+'</p>':'')+'</div></a>'}).join("");
+
+  /* ---- slow line ---- */
+  var words=["chai at four","a letter, handwritten","the radio at 9 PM","a village afternoon","mango summers at nani's","a long conversation","a song, sung slowly","the last bus home","a postcard from the village","a story before sleep"];
+  var line=words.map(function(w){return '<span>'+w+'</span><i>'+ART.chai.replace('class="nma"','class="nma sm"')+'</i>'}).join("");
+  NM.$("#slow").innerHTML=line+line;
+
+  /* ---- The Slow Movement ---- */
+  var MV=[["gaon","Gaon Connection","Rural India's own media platform, started in 2012 from Kunaura village.","https://www.gaonconnection.com/"],["content","Slow Content","Stories, songs and interviews made without a hurry.","slow-interview/"],["imprint","Slow Imprint","Books: poetry, stories and a father's postcards.","books/"],["music","Slow Music","His own songs, in his own voice.",NM.person.social["Slow Music"]],["bazaar","Slow Bazaar","Things made by hand in India's villages.","https://slowbazaar.com/"]];
+  NM.$("#move").innerHTML=MV.map(function(m){return '<a href="'+m[3]+'"><span class="mv-ico">'+ART[m[0]]+'</span><h3>'+m[1]+'</h3><p>'+m[2]+'</p></a>'}).join("");
 };
 </script>
 </body>
