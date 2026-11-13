@@ -51,6 +51,8 @@ window.NM = {
     "173": { img: "assets/img/journey/173-hours.jpg", cap: "173 Hours in Captivity, HarperCollins, 2000", credit: "NM Digital (neeleshmisra.com)", url: "https://www.neeleshmisra.com/about-us" },
     ykib: { img: "assets/img/journey/studio-2013.jpg", cap: "Recording a story in the studio, 2013", credit: "Gaurav Gupta, Wikimedia Commons (CC BY-SA 3.0)", url: "https://commons.wikimedia.org/wiki/File:Neelesh_Misra_during_a_recoding.jpg" },
     yaadsheher: { img: "assets/img/journey/commons-records-poem-2013.jpg", cap: "Recording a poem, 2013", credit: "Gaurav Gupta, Wikimedia Commons (CC BY-SA 3.0)", url: "https://commons.wikimedia.org/wiki/File:Neelesh_Misra_records_his_poem.jpg" },
+    tenk: { img: "assets/img/events/tenk.jpg", cap: "Signing the Ten Thousand Creators Project agreement in Bastar, 2022", credit: "Gaon Connection", url: "https://www.gaonconnection.com/english/10000-creators-project-neelesh-misra-bastar-mou-chhattisgarh-slow-movement-products-rural-tribal-art-50597/" },
+    redfm: { img: "assets/img/events/redfm.jpg", cap: "The Neelesh Misra Show on Red FM, 2016", credit: "Red FM promo, via Medianews4u", url: "https://www.medianews4u.com/?p=2138714" },
     home: { img: "assets/img/journey/home-seated.jpg", cap: "At home in Mumbai", credit: "NM Digital (neeleshmisra.com)", url: "https://www.neeleshmisra.com/" }
   },
 
