@@ -72,11 +72,45 @@
     {
       "key": "redfm",
       "file": "assets/img/events/redfm.jpg",
-      "caption": "The Neelesh Misra Show on Red FM, 2016",
-      "credit": "Red FM (promo, cropped; small 255x380)",
-      "url": "https://www.medianews4u.com/?p=2138714"
+      "caption": "Reading at the mic, the photo used for The Neelesh Misra Show on Red FM, 2016",
+      "credit": "webindia123 (same photo as the Red FM promo)",
+      "url": "https://movie.webindia123.com/film/artist/2329/neelesh-misra/"
+    },
+    {
+      "key": "goenka",
+      "file": "assets/img/events/goenka.jpg",
+      "caption": "Receiving the Ramnath Goenka Excellence in Journalism Award",
+      "credit": "The Indian Express",
+      "url": "https://indianexpress.com/photos/picture-gallery-others/winners-of-the-ramnath-goenka-excellence-in-journalism-award-for-2012/"
     }
   ],
-  "live": [],
-  "now": []
+  "live": [
+    {
+      "file": "assets/img/live/live-1.jpg",
+      "credit": "ThePrint (Democracy Wall, 2018)",
+      "url": "https://theprint.in/report/indias-young-audience-is-mature-but-storytellers-havent-done-enough-neelesh-misra/118379/"
+    },
+    {
+      "file": "assets/img/live/live-2.jpg",
+      "credit": "YouTube frame, Banaras Lit Fest solo storytelling",
+      "url": "https://www.youtube.com/watch?v=Dlks7UIUMR0"
+    },
+    {
+      "file": "assets/img/live/live-3.jpg",
+      "credit": "YouTube thumbnail, live reading (Yaadon Ka Idiot Box era)",
+      "url": "https://www.youtube.com/watch?v=291cKHWuZVc"
+    }
+  ],
+  "now": [
+    {
+      "file": "assets/img/now/storytelling.jpg",
+      "credit": "EventXpress (Odisha Literary Festival, 2017)",
+      "url": "https://www.eventxpress.com/odisha2017/"
+    },
+    {
+      "file": "assets/img/now/film.jpg",
+      "credit": "Mathias Reding / Pexels (free licence)",
+      "url": "https://www.pexels.com/photo/wet-city-street-with-lights-during-night-time-11213185/"
+    }
+  ]
 }
