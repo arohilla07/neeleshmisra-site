@@ -1051,3 +1051,17 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;paddin
 .lv-bring-art img{width:100%;border-radius:4px;box-shadow:0 30px 60px rgba(0,0,0,.4)}
 @media (max-width:900px){.tix,.acts4,.lv-bring-in{grid-template-columns:1fr}.acts4 li{border-right:0;margin-right:0;border-bottom:1px solid var(--line)}.film figure{width:240px}}
 .lv-bring .btn.solid{color:#5a1014}.lv-bring .btn.solid:hover{color:var(--bg)}
+
+/* About: keywords that open a photo of Neelesh at that event */
+.kw{font:inherit;color:inherit;display:inline;padding:0;border-bottom:1.5px dotted var(--sienna,var(--accent));cursor:pointer;transition:color .2s,background .2s;text-align:inherit}
+.kw:hover,.kw[aria-expanded="true"]{color:var(--sienna,var(--accent));background:color-mix(in srgb,var(--sienna,#d41f26) 8%,transparent)}
+.kw-cam{display:inline-block;width:.8em;height:.8em;margin-left:.25em;vertical-align:-.05em;background:currentColor;opacity:.55;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2'%3E%3Cpath d='M4 8h3l2-3h6l2 3h3v11H4z'/%3E%3Ccircle cx='12' cy='13' r='3.5'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2'%3E%3Cpath d='M4 8h3l2-3h6l2 3h3v11H4z'/%3E%3Ccircle cx='12' cy='13' r='3.5'/%3E%3C/svg%3E") center/contain no-repeat}
+.kw-pop{position:fixed;z-index:60;margin:0;width:min(300px,calc(100vw - 24px));background:#fbf8f1;padding:9px 9px 0;box-shadow:0 22px 50px -14px rgba(40,25,10,.45),0 4px 10px rgba(40,25,10,.15);border-radius:2px;opacity:0;transform:translateY(6px) rotate(-1.5deg);transition:opacity .2s,transform .3s cubic-bezier(.2,.8,.2,1);color:#2a2622}
+.kw-pop.on{opacity:1;transform:translateY(0) rotate(-1.5deg)}
+.kw-pop img{width:100%;max-height:320px;object-fit:cover;filter:sepia(.12)}
+.kw-pop figcaption{padding:.6rem .2rem .7rem;display:grid;gap:.2rem}
+.kw-pop b{font-family:var(--f-disp);font-weight:400;font-style:italic;font-size:1rem;line-height:1.3}
+.kw-pop span{font-size:.7rem;letter-spacing:.04em;color:#8a8278}
+.kw-pop a{color:#b3261e;border-bottom:1px solid currentColor}
+.kw-x{position:absolute;right:14px;top:14px;width:28px;height:28px;border-radius:50%;background:rgba(0,0,0,.55);color:#fff;font-size:1.1rem;line-height:1;display:none}
+@media (hover:none),(pointer:coarse){.kw-x{display:grid;place-items:center}}

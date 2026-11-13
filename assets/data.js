@@ -45,6 +45,15 @@ window.NM = {
   posts: [],
   livePhotos: [],
 
+  /* About page: hover/tap a keyword to see a photo of Neelesh at that moment. Credit every photo. */
+  eventPhotos: {
+    kargil: { img: "assets/img/journey/kargil-1999.jpg", cap: "In a bulletproof jacket, off to cover the Kargil war, 1999", credit: "NM Digital (neeleshmisra.com)", url: "https://www.neeleshmisra.com/about-us" },
+    "173": { img: "assets/img/journey/173-hours.jpg", cap: "173 Hours in Captivity, HarperCollins, 2000", credit: "NM Digital (neeleshmisra.com)", url: "https://www.neeleshmisra.com/about-us" },
+    ykib: { img: "assets/img/journey/studio-2013.jpg", cap: "Recording a story in the studio, 2013", credit: "Gaurav Gupta, Wikimedia Commons (CC BY-SA 3.0)", url: "https://commons.wikimedia.org/wiki/File:Neelesh_Misra_during_a_recoding.jpg" },
+    yaadsheher: { img: "assets/img/journey/commons-records-poem-2013.jpg", cap: "Recording a poem, 2013", credit: "Gaurav Gupta, Wikimedia Commons (CC BY-SA 3.0)", url: "https://commons.wikimedia.org/wiki/File:Neelesh_Misra_records_his_poem.jpg" },
+    home: { img: "assets/img/journey/home-seated.jpg", cap: "At home in Mumbai", credit: "NM Digital (neeleshmisra.com)", url: "https://www.neeleshmisra.com/" }
+  },
+
   /* Film songs as lyricist (source: neeleshmisra.com/about-us). */
   filmSongs: [
     { t: "Jaadu Hai Nasha Hai", h: "जादू है नशा है", film: "Jism", y: 2003, yt: "gTSL0Rv0am4" },
