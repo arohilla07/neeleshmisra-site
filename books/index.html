@@ -62,7 +62,8 @@
 NM.page=function(){
   var E=NM.esc, B=NM.books, ART=NM.art;
   function buy(b){return b.buy||"https://www.amazon.in/s?k="+encodeURIComponent(b.t+" "+(b.by||"Neelesh Misra"))}
-  function face(b){return b.img?'<img src="'+b.img+'" alt="Cover of '+E(b.t)+'" loading="lazy">':'<span class="bk2-type" style="background:'+b.c1+';color:'+b.c2+'"><small>'+E(b.cat)+'</small><b>'+E(b.t)+'</b><em>'+E(b.by||"Neelesh Misra")+'</em><i>'+E(b.pub)+'</i></span>'}
+  function src(u){return /^https?:/.test(u)?u:'../'+u}
+  function face(b){return b.img?'<img src="'+src(b.img)+'" alt="Cover of '+E(b.t)+'" loading="lazy">':'<span class="bk2-type" style="background:'+b.c1+';color:'+b.c2+'"><small>'+E(b.cat)+'</small><b>'+E(b.t)+'</b><em>'+E(b.by||"Neelesh Misra")+'</em><i>'+E(b.pub)+'</i></span>'}
   function book(b,cls){return '<span class="bk3 '+(cls||"")+'" style="--spine:'+b.c1+'"><span class="bk3-face">'+face(b)+'</span><span class="bk3-pages" aria-hidden="true"></span></span>'}
   var f=B[0];
   NM.$("#stage").innerHTML='<div class="bk2-glow" aria-hidden="true"></div>'+book(f,"big")+'<span class="bk2-ribbon"><b>Kriti Samman</b><small>Dainik Jagran · 2026</small></span><span class="bk2-cup" aria-hidden="true">'+ART.chai+'</span>';
