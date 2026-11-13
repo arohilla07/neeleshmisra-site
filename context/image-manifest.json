@@ -1,0 +1,17 @@
+{
+  "books": [
+    {"file": "assets/img/books/main-aksar-sochta-hoon.jpg", "title": "Main Aksar Sochta Hoon", "source": "Amazon.in", "url": "https://www.amazon.in/dp/9360452548"},
+    {"file": "assets/img/books/yaad-sheher-1.jpg", "title": "Neelesh Misra Ka Yaad Sheher, Vol. 1", "source": "Amazon.in", "url": "https://www.amazon.in/dp/9382618376"},
+    {"file": "assets/img/books/yaad-sheher-2.jpg", "title": "Neelesh Misra Ka Yaad Sheher, Vol. 2", "source": "Amazon.in", "url": "https://www.amazon.in/dp/9382618384"},
+    {"file": "assets/img/books/gaon-se-bees-postcards.jpg", "title": "Gaon Se Bees Postcard (Shiv Balak Misra; presented by Neelesh Misra)", "source": "Amazon.in", "url": "https://www.amazon.in/dp/9360451568"},
+    {"file": "assets/img/books/the-absent-state.jpg", "title": "The Absent State (with Rahul Pandita)", "source": "Amazon.in", "url": "https://www.amazon.in/dp/9351951065"},
+    {"file": "assets/img/books/inspired-india.jpg", "title": "Inspired India: Ideas to Transform a Nation (eds. Neelesh Misra and Zara Murao)", "source": "Amazon.in", "url": "https://www.amazon.in/dp/8172237820"},
+    {"file": "assets/img/books/india-yatra.jpg", "title": "India Yatra: Places We Have Never Been, People We Will Never Meet (eds. Neelesh Misra and Zara Murao)", "source": "Amazon.in", "url": "https://www.amazon.in/dp/8172238584"},
+    {"file": "assets/img/books/once-upon-a-timezone.jpg", "title": "Once Upon a Timezone", "source": "Amazon.in", "url": "https://www.amazon.in/dp/8172236646"},
+    {"file": "assets/img/books/end-of-the-line.jpg", "title": "End of the Line", "source": "Amazon.in", "url": "https://www.amazon.in/dp/0143027859"},
+    {"file": "assets/img/books/173-hours-in-captivity.jpg", "title": "173 Hours in Captivity (low-res: 316x500, cropped from assets/img/journey/173-hours.jpg; Amazon only has 191x300)", "source": "neeleshmisra.com / Amazon.in", "url": "https://www.amazon.in/dp/8172233949"}
+  ],
+  "events": [],
+  "live": [],
+  "now": []
+}
